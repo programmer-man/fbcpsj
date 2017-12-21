@@ -1,0 +1,15 @@
+{
+  "require-dev": {
+    "panique/laravel-sass": "1.0"
+  },
+  "autoload":{
+    "psr-4":{
+        "Includes\\Modules\\": "inc/modules"
+    }
+  },
+  "require": {
+    "guzzlehttp/guzzle": "^6",
+    "facebook/graph-sdk": "^5.6",
+    "kerigansolutions/facebookfeed": "^0.13.0"
+  }
+}

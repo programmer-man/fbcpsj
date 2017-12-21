@@ -1,0 +1,11 @@
+.idea/
+.DS_Store
+wp-content/themes/fbcpsj/vendor/
+wp-content/themes/fbcpsj/node_modules/
+wp-config.php
+tags
+.user.ini
+php.ini
+*error_log
+*/cache/
+wp-content/uploads/
