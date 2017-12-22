@@ -32,7 +32,7 @@ use Includes\Modules\Events\Events;
                             </div>
                             <div class="title-location">
                                 <span class="event-title"><?php echo $event['name']; ?></span>
-                                <?php if($event['time'] != ''){ ?>
+                                <?php if($event['location'] != ''){ ?>
                                 <span class="location"><?php echo $event['location']; ?></span>
                                 <?php } ?>
                                 <?php if($event['time'] != ''){ ?>
