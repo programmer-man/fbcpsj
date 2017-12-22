@@ -80,7 +80,8 @@ body {
 
     img {
       max-height: 5.75rem;
-      width: fit-content;
+      width: 245px;
+      max-width: 100%;
     }
 
     .navbar-burger {
@@ -316,6 +317,7 @@ body {
   position: relative;
   flex: 1 0 auto;
   z-index: 2;
+  background-color: #f7fbfc;
 
   .section-wrapper {
 
@@ -757,6 +759,7 @@ body {
   flex-direction: column;
   justify-content: space-between;
   border: 1px solid #ddd;
+  background-color: #FFF;
 
   .blog-image.no-photo {
     display: flex;
