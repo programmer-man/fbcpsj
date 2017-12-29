@@ -775,7 +775,6 @@ body {
       width: auto;
       min-width: auto;
       min-height: auto;
-      max-width: 444px;
       max-height: 300px;
       margin: auto;
     }
@@ -801,7 +800,11 @@ body {
   }
 
   .blog-content.status-only {
-    background-color: rgba(0,0,40,.5);
+    background: rgb(43,159,191); /* Old browsers */
+    background: -moz-linear-gradient(-45deg, rgba(43,159,191,1) 0%, rgba(51,188,227,1) 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(-45deg, rgba(43,159,191,1) 0%,rgba(51,188,227,1) 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(135deg, rgba(43,159,191,1) 0%,rgba(51,188,227,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#2b9fbf', endColorstr='#33bce3',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
     height: 100%;
     display: flex;
     justify-content: center;
