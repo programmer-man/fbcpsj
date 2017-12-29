@@ -254,7 +254,7 @@ class Sermons {
 	    if(!empty($request)){
 		    $output = $request;
 	    }else{
-		    $output = 'We currently don\'t know what is coming up next. Check back soon!';
+		    $output = 'Check back soon!';
 	    }
 
         return $output;
