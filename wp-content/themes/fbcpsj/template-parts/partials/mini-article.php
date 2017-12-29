@@ -9,7 +9,7 @@ $dateposted = human_time_diff(time(),strtotime($result->created_time)) . ' ago';
 $content  = isset($result->message) ? $result->message : null;
 $photoUrl = isset($result->full_picture) ? $result->full_picture : null;
 ?>
-<div class="column is-3-tablet">
+<div class="column is-6-tablet is-3-widescreen">
 
     <div class="blog-article">
         <div class="blog-image <?= ! isset($photoUrl) ? 'no-photo' : '' ?> ">
