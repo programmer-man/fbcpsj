@@ -211,7 +211,7 @@ class Leads
 
         $this->sendEmail(
             [
-                'to'        => $fullName . '<' . $emailAddress . '>',
+                'to'        => $fullName . ' <' . $emailAddress . '>',
                 'from'      => get_bloginfo() . ' <noreply@' . $this->domain . '>',
                 'subject'   => 'Your website submission has been received',
                 'bcc'       => $this->bccEmail,
@@ -321,24 +321,16 @@ class Leads
      * actually send an email
      * TODO: Add handling for attachments
      */
-    protected function sendEmail (
-        $emailData = [
-            'subject'   => 'Email from website',
-            'headline'  => 'This is an email from the website!',
-            'introcopy' => 'If we weren\'t testing, there would be stuff here.',
-            'filedata'  => '',
-            'fileinfo'  => '',
-            'leadData'  => ''
-        ]
-    ) {
-        $eol           = "\r\n";
-        $emailTemplate = $this->createEmailTemplate($emailData);
-        $headers       = 'From: ' . 'Website <noreply@' . $this->domain . $eol;
-        $headers       .= (isset($this->adminCc) ? 'Cc: ' . $this->adminCc . $eol : '');
-        $headers       .= (isset($this->adminBcc) ? 'Bcc: ' . $this->adminBcc . $eol : '');
-        $headers       .= 'MIME-Version: 1.0' . $eol;
-        $headers       .= 'Content-type: text/html; charset=utf-8' . $eol;
+	public function sendEmail ( $emailData = [] ) {
+		$eol           = "\r\n";
+		$emailTemplate = $this->createEmailTemplate($emailData);
+		$headers       = 'From: ' . $emailData['from'] . $eol;
+		$headers       .= (isset($emailData['cc']) ? 'Cc: ' . $emailData['cc'] . $eol : '');
+		$headers       .= (isset($emailData['bcc']) ? 'Bcc: ' . $emailData['bcc'] . $eol : '');
+		$headers       .= (isset($emailData['replyto']) ? 'Reply-To: ' . $emailData['replyto'] . $eol : '');
+		$headers       .= 'MIME-Version: 1.0' . $eol;
+		$headers       .= 'Content-type: text/html; charset=utf-8' . $eol;
 
-        mail($this->adminEmail, $emailData['subject'], $emailTemplate, $headers);
-    }
+		wp_mail($emailData['to'], $emailData['subject'], $emailTemplate, $headers);
+	}
 }
