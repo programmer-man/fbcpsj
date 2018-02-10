@@ -6,12 +6,13 @@ use Includes\Modules\CPT\CustomPostType;
 
 class Leads
 {
-    protected $postType;
-    protected $adminEmail;
-    protected $domain;
-    protected $ccEmail;
-    protected $bccEmail;
-    public    $additionalFields;
+	protected $postType;
+	public    $adminEmail;
+	public    $domain;
+	public    $ccEmail;
+	public    $bccEmail;
+	public    $additionalFields;
+	public    $siteName;
 
     /**
      * Leads constructor.
@@ -35,7 +36,21 @@ class Leads
         ]);
     }
 
-    /**
+	protected function set($var, $value)
+	{
+		$this->$var = $value;
+	}
+
+	protected function get($var)
+	{
+		return $this->$var;
+	}
+
+	protected function uglify($var){
+		return str_replace(' ', '_', strtolower($var));
+	}
+
+	/**
      * Creates custom post type and backend view
      * @instructions run once from functions.php
      */
@@ -49,12 +64,41 @@ class Leads
      * Handle data submitted by lead form
      * @param array $dataSubmitted
      * @instructions pass $_POST to $dataSubmitted from template file
+     * @return boolean
      */
     public function handleLead ($dataSubmitted = [])
     {
-        $this->addToDashboard($dataSubmitted);
-        $this->sendNotifications($dataSubmitted);
+	    $fullName = (isset($dataSubmitted['full_name']) ? $dataSubmitted['full_name'] : null);
+	    $dataSubmitted['full_name'] = (isset($dataSubmitted['first_name']) && isset($dataSubmitted['last_name']) ? $dataSubmitted['first_name'] . ' ' . $dataSubmitted['last_name'] : $fullName);
+
+	    $this->addToDashboard($dataSubmitted);
+	    if(!$this->validateSubmission($dataSubmitted)){ return false; }
+	    $this->sendNotifications($dataSubmitted);
+	    return true;
     }
+
+	/*
+	 * Validate certain data types on the backend
+	 * @param array $dataSubmitted
+	 * @return boolean $passCheck
+	 */
+	protected function validateSubmission($dataSubmitted)
+	{
+
+		$passCheck = true;
+		if ($dataSubmitted['email_address'] == '') {
+			$passCheck = false;
+		} elseif (!filter_var($dataSubmitted['email_address'], FILTER_VALIDATE_EMAIL) && !preg_match('/@.+\./',
+				$dataSubmitted['email_address'])) {
+			$passCheck = false;
+		}
+		if ($dataSubmitted['full_name'] == '') {
+			$passCheck = false;
+		}
+
+		return $passCheck;
+
+	}
 
     /**
      * adds a lead (post) to WP admin dashboard (database)
@@ -72,7 +116,7 @@ class Leads
             [
                 'post_content'   => '',
                 'post_status'    => 'publish',
-                'post_type'      => $this->postType,
+                'post_type'      => $this->uglify($this->postType),
                 'post_title'     => $leadInfo['first_name'] . ' ' . $leadInfo['last_name'],
                 'comment_status' => 'closed',
                 'ping_status'    => 'closed',
@@ -112,6 +156,29 @@ class Leads
         ], $input);
     }
 
+	public function getLeads($args = []){
+		$request = [
+			'posts_per_page' => - 1,
+			'offset'         => 0,
+			'post_type'      => $this->uglify($this->postType),
+			'post_status'    => 'publish',
+		];
+
+		$args = array_merge( $request, $args );
+		$results = get_posts( $args );
+
+		$resultArray = [];
+		foreach ( $results as $item ){
+			$meta = get_post_meta($item->ID);
+			$resultArray[] = [
+				'object' => $item,
+				'meta'   => $meta
+			];
+		}
+
+		return $resultArray;
+	}
+
     /*
      * Sends notification email(s)
      * @param array $leadInfo
@@ -121,10 +188,12 @@ class Leads
         $emailAddress = $leadInfo['email_address'];
         $fullName     = $leadInfo['first_name'] . ' ' . $leadInfo['last_name'];
 
-        $tableData = '';
-        foreach ($this->additionalFields as $key => $var) {
-            $tableData .= '<tr><td class="label"><strong>' . $var . '</strong></td><td>' . $leadInfo[$key] . '</td>';
-        }
+	    $tableData = '';
+	    foreach ($this->additionalFields as $key => $var) {
+		    if(isset($leadInfo[$key])) {
+			    $tableData .= '<tr><td class="label"><strong>' . $var . '</strong></td><td>' . $leadInfo[$key] . '</td>';
+		    }
+	    }
 
         $this->sendEmail(
             [
