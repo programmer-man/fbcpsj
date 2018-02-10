@@ -32,8 +32,9 @@ function fbcpsj_setup() {
     $facebookSettingsPage = new FacebookSettings();
     $facebookSettingsPage->setupPage();
 
-    $leads = new SimpleContact;
-    $leads->setupAdmin();
+	$contact = new SimpleContact;
+	$contact->setupAdmin();
+	$contact->setupShortcode();
 
     $slider = new BulmaSlider();
     $slider->createPostType();
