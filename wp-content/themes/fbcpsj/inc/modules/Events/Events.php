@@ -83,6 +83,7 @@ class Events
         add_filter('manage_event_posts_columns',
                 function ($defaults) {
                     $defaults = [
+                    	    'cb'          => '',
                             'title'       => 'Title',
                             'start'       => 'Start',
                             'end'         => 'End',
