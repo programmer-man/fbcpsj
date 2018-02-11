@@ -83,7 +83,7 @@ class Events
         add_filter('manage_event_posts_columns',
                 function ($defaults) {
                     $defaults = [
-                    	    'cb'          => '',
+                    	    'cb'          => '<input type="checkbox" />',
                             'title'       => 'Title',
                             'start'       => 'Start',
                             'end'         => 'End',
