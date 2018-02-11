@@ -247,16 +247,16 @@
         },
         {
             "name": "kerigansolutions/facebookfeed",
-            "version": "0.13",
+            "version": "0.13.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/kerigansolutions/facebookfeed.git",
-                "reference": "181e73ac85ef4959d604883b486dbbfc199285a3"
+                "reference": "7171b0069a9904bae4b9d02732673614b8458683"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kerigansolutions/facebookfeed/zipball/181e73ac85ef4959d604883b486dbbfc199285a3",
-                "reference": "181e73ac85ef4959d604883b486dbbfc199285a3",
+                "url": "https://api.github.com/repos/kerigansolutions/facebookfeed/zipball/7171b0069a9904bae4b9d02732673614b8458683",
+                "reference": "7171b0069a9904bae4b9d02732673614b8458683",
                 "shasum": ""
             },
             "require": {
@@ -278,7 +278,7 @@
                     "email": "daron.adkins@gmail.com"
                 }
             ],
-            "time": "2017-11-17T20:44:27+00:00"
+            "time": "2017-12-01T15:54:48+00:00"
         },
         {
             "name": "psr/http-message",
