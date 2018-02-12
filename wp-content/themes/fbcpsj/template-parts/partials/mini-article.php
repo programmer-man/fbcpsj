@@ -19,7 +19,7 @@ $photoUrl = isset($result->full_picture) ? $result->full_picture : null;
                         <img src="<?php echo $photoUrl; ?>" alt="<?php echo $result->caption; ?>" >
                     </a>
                 </figure>
-            <?php } elseif($result->type == 'video') { ?>
+            <?php } else if($result->type == 'video') { ?>
                 <figure class="image video is-16by9">
                     <iframe
                             src="<?php echo $result->link ?>"
