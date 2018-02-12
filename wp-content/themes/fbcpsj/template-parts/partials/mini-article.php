@@ -23,7 +23,7 @@ echo '<pre>',print_r($result),'</pre>';
             <?php } else { ?>
                 <figure class="image video is-16by9">
                     <iframe
-                            src="<?php echo $result->link ?>"
+                            src="<?php echo $result->link; ?>"
                             style="border:none;overflow:hidden"
                             scrolling="no"
                             frameborder="0"
