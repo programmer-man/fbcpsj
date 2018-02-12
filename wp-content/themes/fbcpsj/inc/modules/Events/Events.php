@@ -98,7 +98,7 @@ class Events
                 }, 0);
 
         add_action('manage_event_posts_custom_column', function ($column_name, $post_ID) {
-            switch vim($column_name) {
+            switch ($column_name) {
                 case 'photo':
                     $photo = get_post_meta($post_ID, 'event_details_photo_file', true);
                     echo(isset($photo) ? '<img src ="' . $photo . '" class="img-fluid" style="width:400px; max-width:100%;" >' : null);
