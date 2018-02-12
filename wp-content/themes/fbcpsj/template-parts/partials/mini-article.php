@@ -8,12 +8,11 @@
 $dateposted = human_time_diff(time(),strtotime($result->created_time)) . ' ago';
 $content  = isset($result->message) ? $result->message : null;
 $photoUrl = isset($result->full_picture) ? $result->full_picture : null;
-echo '<pre>',print_r($result),'</pre>';
 ?>
 <div class="column is-6-tablet is-3-widescreen">
 
     <div class="blog-article">
-        <div class="blog-image <?= (!isset($photoUrl) && ($result->type != 'video') ? 'no-photo' : '') ?> ">
+        <div class="blog-image <?= ! isset($photoUrl) ? 'no-photo' : '' ?> ">
             <?php if($result->type != 'video' && isset($photoUrl)) { ?>
                 <figure class="image">
                     <a target="_blank" href="<?php echo $result->permalink_url; ?>" target="_blank">
@@ -23,7 +22,7 @@ echo '<pre>',print_r($result),'</pre>';
             <?php } else { ?>
                 <figure class="image video is-16by9">
                     <iframe
-                            src="<?php echo $result->link; ?>"
+                            src="<?= $result->link; ?>"
                             style="border:none;overflow:hidden"
                             scrolling="no"
                             frameborder="0"
@@ -36,7 +35,7 @@ echo '<pre>',print_r($result),'</pre>';
                     </iframe>
                 </figure>
             <?php } ?>
-            <div class="blog-content <?= !isset($photoUrl) && ($result->type != 'video') ? 'status-only' : '' ?>">
+            <div class="blog-content <?= ! isset($photoUrl) ? 'status-only' : '' ?>">
                 <div class="entry-meta">
                     <?= ($dateposted!='' ? '<p class="time-posted">'.$dateposted.'</p>' : null); ?>
                 </div>
@@ -48,7 +47,7 @@ echo '<pre>',print_r($result),'</pre>';
             <?php if($result->type != 'video'){ ?>
                 <a class="button button-sm is-transparent" target="_blank" href="<?= $result->permalink_url; ?>">Read&nbsp;on&nbsp;facebook</a>
             <?php }else{ ?>
-                <a class="button button-sm is-transparent" @click="$emit('toggleModal', 'embedViewer', '<?= $result->link; ?>')" >Watch&nbsp;the&nbsp;video</a>
+                <a class="button button-sm is-transparent" target="_blank" href="<?= $result->link; ?>" >Watch&nbsp;the&nbsp;video</a>
             <?php } ?>
         </div>
     </div>
