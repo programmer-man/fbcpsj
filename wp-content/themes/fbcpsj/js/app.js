@@ -6,7 +6,6 @@ import tabs from './components/tabs.vue';
 import tab from './components/tab.vue';
 import slider from './components/slider.vue';
 import slide from './components/slide.vue';
-import videoModal from './components/videoModal.vue';
 import GoogleMap from './components/GoogleMap.vue';
 
 var app = new Vue({
@@ -20,7 +19,6 @@ var app = new Vue({
         tab,
         slider,
         slide,
-        videoModal,
         GoogleMap
     },
 

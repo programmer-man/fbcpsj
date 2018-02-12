@@ -286,7 +286,7 @@ body {
 }
 
 .mid-pad {
-  background-image: url(http://fbcpsj.dev/wp-content/uploads/2017/09/DETRKX3XkAAJ3e3.jpg);
+  background-image: url(/wp-content/uploads/2017/09/DETRKX3XkAAJ3e3.jpg);
   -webkit-background-size: cover;
   background-size: cover;
 
@@ -792,6 +792,12 @@ body {
     p.time-posted {
       font-style: italic;
       font-size: .9em;
+    }
+
+    .entry-meta.no-text {
+      p.time-posted {
+        padding: 0;
+      }
     }
 
     p {
