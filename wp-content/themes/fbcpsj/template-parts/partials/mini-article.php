@@ -8,11 +8,12 @@
 $dateposted = human_time_diff(time(),strtotime($result->created_time)) . ' ago';
 $content  = isset($result->message) ? $result->message : null;
 $photoUrl = isset($result->full_picture) ? $result->full_picture : null;
+echo '<pre>',print_r($result),'</pre>';
 ?>
 <div class="column is-6-tablet is-3-widescreen">
 
     <div class="blog-article">
-        <div class="blog-image <?= ((!isset($photoUrl)) && ($result->type != 'video') ? 'no-photo' : '') ?> ">
+        <div class="blog-image <?= (!isset($photoUrl) && ($result->type != 'video') ? 'no-photo' : '') ?> ">
             <?php if($result->type != 'video' && isset($photoUrl)) { ?>
                 <figure class="image">
                     <a target="_blank" href="<?php echo $result->permalink_url; ?>" target="_blank">
@@ -35,7 +36,7 @@ $photoUrl = isset($result->full_picture) ? $result->full_picture : null;
                     </iframe>
                 </figure>
             <?php } ?>
-            <div class="blog-content <?= ! isset($photoUrl) ? 'status-only' : '' ?>">
+            <div class="blog-content <?= !isset($photoUrl) && ($result->type != 'video') ? 'status-only' : '' ?>">
                 <div class="entry-meta">
                     <?= ($dateposted!='' ? '<p class="time-posted">'.$dateposted.'</p>' : null); ?>
                 </div>
