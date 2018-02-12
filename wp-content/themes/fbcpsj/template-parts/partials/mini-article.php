@@ -12,7 +12,7 @@ $photoUrl = isset($result->full_picture) ? $result->full_picture : null;
 <div class="column is-6-tablet is-3-widescreen">
 
     <div class="blog-article">
-        <div class="blog-image <?= ! isset($photoUrl) && $result->type != 'video' ? 'no-photo' : '' ?> ">
+        <div class="blog-image <?= ((!isset($photoUrl)) && $result->type != 'video' ? 'no-photo' : '') ?> ">
             <?php if($result->type != 'video' && isset($photoUrl)) { ?>
                 <figure class="image">
                     <a target="_blank" href="<?php echo $result->permalink_url; ?>" target="_blank">
