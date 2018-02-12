@@ -12,14 +12,14 @@ $photoUrl = isset($result->full_picture) ? $result->full_picture : null;
 <div class="column is-6-tablet is-3-widescreen">
 
     <div class="blog-article">
-        <div class="blog-image <?= ! isset($photoUrl) ? 'no-photo' : '' ?> ">
+        <div class="blog-image <?= ! isset($photoUrl) && $result->type != 'video' ? 'no-photo' : '' ?> ">
             <?php if($result->type != 'video' && isset($photoUrl)) { ?>
                 <figure class="image">
                     <a target="_blank" href="<?php echo $result->permalink_url; ?>" target="_blank">
                         <img src="<?php echo $photoUrl; ?>" alt="<?php echo $result->caption; ?>" >
                     </a>
                 </figure>
-            <?php } elseif(isset($photoUrl)) { ?>
+            <?php } elseif($result->type == 'video') { ?>
                 <figure class="image video is-16by9">
                     <iframe
                             src="<?php echo $result->link ?>"
