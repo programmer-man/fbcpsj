@@ -285,6 +285,19 @@ body {
   content: "";
 }
 
+.video-wrapper.vertical {
+  margin-left: 20%;
+  margin-right: 20%;
+  width: 60%;
+}
+
+
+.video-wrapper.vertical::before {
+  padding-top: 180%;
+  display: block;
+  content: "";
+}
+
 .mid-pad {
   background-image: url(/wp-content/uploads/2017/09/DETRKX3XkAAJ3e3.jpg);
   -webkit-background-size: cover;

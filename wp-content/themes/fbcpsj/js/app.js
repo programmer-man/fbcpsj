@@ -13,21 +13,21 @@ var app = new Vue({
     el: '#app',
 
     components: {
-        message,
-        modal,
-        tabs,
-        tab,
-        slider,
-        slide,
-        GoogleMap
+        'message' : message,
+        'modal' : modal,
+        'tabs' : tabs,
+        'tab' : tab,
+        'slider' : slider,
+        'slide' : slide,
+        'google-map' : GoogleMap
     },
 
-    data: {
-        isOpen: false,
-        modalOpen: false,
-        vimeoCode: '',
-        scrolled: false,
-        windowHeight: 0
+    data(){
+        return {
+            isOpen: false,
+            scrolled: false,
+            windowHeight: 0
+        }
     },
 
     methods: {
@@ -37,13 +37,13 @@ var app = new Vue({
         },
 
         handleScroll(){
-            this.scrolled = (window.scrollY > 0 ? true : false);
+            this.scrolled = window.scrollY > 0;
         }
 
     },
 
     mounted: function() {
-        this.windowHeight = window.innerHeight > this.$root.$el.clientHeight ? true : false;
+        this.windowHeight = window.innerHeight > this.$root.$el.clientHeight;
     },
 
     created: function () {

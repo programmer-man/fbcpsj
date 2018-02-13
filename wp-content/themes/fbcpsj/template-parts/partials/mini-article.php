@@ -8,6 +8,11 @@
 $dateposted = human_time_diff(time(),strtotime($result->created_time)) . ' ago';
 $content  = isset($result->message) ? $result->message : null;
 $photoUrl = isset($result->full_picture) ? $result->full_picture : null;
+if($result->type == 'video' && isset($result->attachments)){
+	$mediaImage = $result->attachments->data[0]->media->image;
+}
+$aspectRatio = (isset($mediaImage->height) && isset($mediaImage->width) && $mediaImage->height > $mediaImage->width ? 'vertical' : 'horizontal' );
+//echo '<pre>',print_r($result),'</pre>';
 ?>
 <div class="column is-6-tablet is-3-widescreen">
 
@@ -20,7 +25,7 @@ $photoUrl = isset($result->full_picture) ? $result->full_picture : null;
                     </a>
                 </figure>
             <?php } elseif($result->type == 'video') { ?>
-                <div class="video-wrapper">
+                <div class="video-wrapper <?= $aspectRatio; ?>">
                     <iframe
                             src="<?php echo $result->link ?>"
                             style="border:none;overflow:hidden"
@@ -49,7 +54,7 @@ $photoUrl = isset($result->full_picture) ? $result->full_picture : null;
             <?php if($result->type != 'video'){ ?>
                 <a class="button button-sm is-transparent" target="_blank" href="<?= $result->permalink_url; ?>">Read&nbsp;on&nbsp;facebook</a>
             <?php }else{ ?>
-                <a class="button button-sm is-transparent" @click="$emit('toggleModal', 'embedViewer', '<?= $result->link; ?>')" >Watch&nbsp;the&nbsp;video</a>
+                <a class="button button-sm is-transparent" @click="$emit('toggleModal', 'embedViewer', '<?= $result->link; ?>','<?= $aspectRatio; ?>')" >Watch&nbsp;the&nbsp;video</a>
             <?php } ?>
         </div>
     </div>

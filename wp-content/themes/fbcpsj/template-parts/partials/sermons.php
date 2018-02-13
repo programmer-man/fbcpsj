@@ -72,7 +72,7 @@ $sermonObject = new Sermons();
                                     </div>
                                     <?php if ($recentSermon['vimeo'] != '') { ?>
                                         <div class="sermon-button">
-                                            <button @click="$emit('toggleModal', 'videoViewer', <?php echo $recentSermon['vimeo']; ?>)"
+                                            <button @click="$emit('toggleModal', 'videoViewer', <?php echo $recentSermon['vimeo']; ?>, 'horizontal')"
                                                     class="button button-sm is-transparent">watch online
                                             </button>
                                         </div>

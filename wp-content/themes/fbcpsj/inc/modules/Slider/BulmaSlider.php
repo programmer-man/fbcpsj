@@ -132,7 +132,7 @@ class BulmaSlider {
         $i = 0;
         foreach($slides as $slide){
 
-            $slider .= '<slide :id="'.$i.'" image="'.$slide['photo'].'" '.( $i==0 ? ':active="true"' : '' ).'>
+            $slider .= '<slide id="slide-'.$i.'" image="'.$slide['photo'].'" >
                     <section class="slide-content">'
                             . ($slide['headline'] != '' ? '<h2 class="slider-title">'.$slide['headline'].'</h2>' : '')
                             . ($slide['caption'] != '' ? '<p class="slider-subtitle">'.$slide['caption'].'</p>' : '')

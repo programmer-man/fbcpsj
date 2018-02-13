@@ -9,7 +9,6 @@ use Includes\Modules\Navwalker\BulmaNavwalker;
  * @version 1.2
  */
 ?>
-<modal><?= (isset($modalContent) && $modalContent != '' ? $modalContent : ''); ?></modal>
 <div id="bot" class="centered">
 
     <div class="footer-contact">

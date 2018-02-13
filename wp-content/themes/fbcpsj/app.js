@@ -185,34 +185,35 @@ var app = new Vue({
     el: '#app',
 
     components: {
-        message: __WEBPACK_IMPORTED_MODULE_0__components_message_vue___default.a,
-        modal: __WEBPACK_IMPORTED_MODULE_1__components_modal_vue___default.a,
-        tabs: __WEBPACK_IMPORTED_MODULE_2__components_tabs_vue___default.a,
-        tab: __WEBPACK_IMPORTED_MODULE_3__components_tab_vue___default.a,
-        slider: __WEBPACK_IMPORTED_MODULE_4__components_slider_vue___default.a,
-        slide: __WEBPACK_IMPORTED_MODULE_5__components_slide_vue___default.a,
-        GoogleMap: __WEBPACK_IMPORTED_MODULE_6__components_GoogleMap_vue___default.a
+        'message': __WEBPACK_IMPORTED_MODULE_0__components_message_vue___default.a,
+        'modal': __WEBPACK_IMPORTED_MODULE_1__components_modal_vue___default.a,
+        'tabs': __WEBPACK_IMPORTED_MODULE_2__components_tabs_vue___default.a,
+        'tab': __WEBPACK_IMPORTED_MODULE_3__components_tab_vue___default.a,
+        'slider': __WEBPACK_IMPORTED_MODULE_4__components_slider_vue___default.a,
+        'slide': __WEBPACK_IMPORTED_MODULE_5__components_slide_vue___default.a,
+        'google-map': __WEBPACK_IMPORTED_MODULE_6__components_GoogleMap_vue___default.a
     },
 
-    data: {
-        isOpen: false,
-        modalOpen: false,
-        vimeoCode: '',
-        scrolled: false,
-        windowHeight: 0
+    data: function data() {
+        return {
+            isOpen: false,
+            scrolled: false,
+            windowHeight: 0
+        };
     },
+
 
     methods: {
         toggleMenu: function toggleMenu() {
             this.isOpen = !this.isOpen;
         },
         handleScroll: function handleScroll() {
-            this.scrolled = window.scrollY > 0 ? true : false;
+            this.scrolled = window.scrollY > 0;
         }
     },
 
     mounted: function mounted() {
-        this.windowHeight = window.innerHeight > this.$root.$el.clientHeight ? true : false;
+        this.windowHeight = window.innerHeight > this.$root.$el.clientHeight;
     },
 
     created: function created() {
@@ -246,7 +247,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     props: {
-        htmlContent: false
+        htmlContent: '',
+        aspectRatio: ''
     }
 });
 
@@ -455,7 +457,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 /* harmony default export */ __webpack_exports__["default"] = ({
     props: {
-        vimeoCode: false
+        vimeoCode: '',
+        aspectRatio: ''
     }
 });
 
@@ -525,7 +528,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     data: function data() {
         return {
             showModal: false,
-            modalContent: []
+            modalContent: [],
+            aspectRatio: '',
+            modalOpen: false
         };
     },
 
@@ -537,17 +542,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     methods: {
         toggleModal: function toggleModal() {
             this.showModal = !this.showModal;
-            if (this.$parent.modalOpen !== '') {
-                this.$parent.modalOpen = '';
+            if (this.modalOpen !== '') {
+                this.modalOpen = '';
             }
         }
     },
     mounted: function mounted() {
-        //console.log('Component mounted.');
-
-        this.$parent.$on('toggleModal', function (modal, content) {
-            this.modalOpen = modal;
-            this.$children[1].modalContent = content;
+        var vm = this;
+        this.$parent.$on('toggleModal', function (modal, content, aspect) {
+            vm.modalOpen = modal;
+            vm.modalContent = content;
+            vm.aspectRatio = aspect;
         });
     }
 });
@@ -566,22 +571,15 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-
     props: {
-        active: { default: false },
-        image: { required: true },
-        id: { type: Number }
+        image: ''
     },
 
     data: function data() {
         return {
+            id: '',
             isActive: false
         };
-    },
-    created: function created() {
-        if (this.active == true) {
-            this.isActive = true;
-        }
     },
 
 
@@ -630,17 +628,20 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
         this.slides = this.$children;
         setInterval(function () {
-            if (_this.paused == false) {
+            if (_this.paused === false) {
                 _this.nextSlide();
             }
         }, 6000);
+    },
+    mounted: function mounted() {
+        this.$children[0].isActive = true;
     },
 
 
     methods: {
         nextSlide: function nextSlide() {
             this.slides[this.activeSlide]._data.isActive = false;
-            if (this.activeSlide == this.slides.length - 1) {
+            if (this.activeSlide === this.slides.length - 1) {
                 this.activeSlide = -1;
             }
             this.activeSlide++;
@@ -649,7 +650,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         prevSlide: function prevSlide() {
             this.slides[this.activeSlide]._data.isActive = false;
             this.activeSlide--;
-            if (this.activeSlide == -1) {
+            if (this.activeSlide === -1) {
                 this.activeSlide = this.slides.length - 1;
             }
             this.slides[this.activeSlide]._data.isActive = true;
@@ -745,7 +746,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     methods: {
         selectTab: function selectTab(selectedTab) {
             this.tabs.forEach(function (tab) {
-                tab.isActive = tab.name == selectedTab.name;
+                tab.isActive = tab.name === selectedTab.name;
             });
         }
     }
@@ -1539,7 +1540,10 @@ module.exports = Component.exports
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
-    staticClass: "video-wrapper"
+    staticClass: "video-wrapper",
+    class: {
+      'vertical': this.aspectRatio === 'vertical'
+    }
   }, [_c('iframe', {
     attrs: {
       "src": this.htmlContent,
@@ -1601,15 +1605,12 @@ if (false) {
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
     class: ['slide', {
-      'active': _vm.isActive
+      'active': this.isActive
     }],
     style: ({
-      'background-image': 'url(' + _vm.image + ')',
+      'background-image': 'url(' + this.image + ')',
       'z-index': _vm.zindex
-    }),
-    attrs: {
-      "id": 'slide-' + _vm.id
-    }
+    })
   }, [_vm._t("default")], 2)
 },staticRenderFns: []}
 module.exports.render._withStripped = true
@@ -1625,7 +1626,7 @@ if (false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
-  return (this.$parent.modalOpen != '') ? _c('div', {
+  return (this.modalOpen != '') ? _c('div', {
     staticClass: "modal is-active"
   }, [_c('div', {
     staticClass: "modal-background",
@@ -1634,17 +1635,20 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
     }
   }), _vm._v(" "), _c('div', {
     staticClass: "modal-content large"
-  }, [(this.$parent.modalOpen == 'imageViewer') ? _c('image-modal', {
+  }, [(this.modalOpen == 'imageViewer') ? _c('image-modal', {
     attrs: {
-      "imageUrl": this.modalContent
+      "imageUrl": this.modalContent,
+      "aspectRatio": this.aspectRatio
     }
-  }, [_vm._t("default")], 2) : _vm._e(), _vm._v(" "), (this.$parent.modalOpen == 'videoViewer') ? _c('video-modal', {
+  }, [_vm._t("default")], 2) : _vm._e(), _vm._v(" "), (this.modalOpen == 'videoViewer') ? _c('video-modal', {
     attrs: {
-      "vimeoCode": this.modalContent
+      "vimeoCode": this.modalContent,
+      "aspectRatio": this.aspectRatio
     }
-  }) : _vm._e(), _vm._v(" "), (this.$parent.modalOpen == 'embedViewer') ? _c('embed-modal', {
+  }) : _vm._e(), _vm._v(" "), (this.modalOpen == 'embedViewer') ? _c('embed-modal', {
     attrs: {
-      "htmlContent": this.modalContent
+      "htmlContent": this.modalContent,
+      "aspectRatio": this.aspectRatio
     }
   }) : _vm._e()], 1), _vm._v(" "), _c('button', {
     staticClass: "modal-close is-large",
@@ -1733,7 +1737,8 @@ if (false) {
 
 module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c=_vm._self._c||_h;
   return _c('div', {
-    staticClass: "video-wrapper"
+    staticClass: "video-wrapper",
+    class: this.aspectRatio
   }, [_c('iframe', {
     attrs: {
       "src": 'https://player.vimeo.com/video/' + this.vimeoCode + '?autoplay=1&title=0&byline=0&portrait=0',
@@ -1833,7 +1838,7 @@ module.exports={render:function (){var _vm=this;var _h=_vm.$createElement;var _c
   return _c('div', {
     staticClass: "google-map",
     attrs: {
-      "id": _vm.mapName
+      "id": this.mapName
     }
   })
 },staticRenderFns: []}

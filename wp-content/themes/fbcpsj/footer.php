@@ -7,6 +7,7 @@
  */
 ?>
 <?php include(locate_template('template-parts/partials/bot.php')); ?>
+<modal><?= (isset($modalContent) && $modalContent != '' ? $modalContent : ''); ?></modal>
 </div>
 <?php wp_footer(); ?>
 

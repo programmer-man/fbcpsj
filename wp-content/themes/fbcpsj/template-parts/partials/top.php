@@ -9,7 +9,7 @@ use Includes\Modules\Navwalker\BulmaNavwalker;
  * @version 1.2
  */
 ?>
-<header id="top" :class="{smaller: scrolled}">
+<header id="top" :class="{ 'smaller': scrolled }">
     <nav class="navbar is-transparent">
         <div class="navbar-brand">
             <a href="/">
@@ -23,7 +23,7 @@ use Includes\Modules\Navwalker\BulmaNavwalker;
             </div>
         </div>
 
-        <div id="TopNavMenu" :class="[{ 'is-active': isOpen }, 'navbar-menu']" >
+        <div id="TopNavMenu" class="navbar-menu" :class="{ 'is-active': isOpen }" >
             <?php wp_nav_menu( array(
                     'theme_location' => 'main-menu',
                     'container'      => false,

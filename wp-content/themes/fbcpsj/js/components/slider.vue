@@ -26,17 +26,19 @@
         },
 
         created(){
-
             this.slides = this.$children
-            setInterval(() => { if(this.paused == false){ this.nextSlide() } }, 6000)
+            setInterval(() => { if(this.paused === false){ this.nextSlide() } }, 6000)
+        },
 
+        mounted(){
+            this.$children[0].isActive = true
         },
 
         methods: {
 
             nextSlide(){
                 this.slides[this.activeSlide]._data.isActive = false
-                if(this.activeSlide == this.slides.length-1){
+                if(this.activeSlide === this.slides.length-1){
                     this.activeSlide = -1
                 }
                 this.activeSlide++
@@ -46,7 +48,7 @@
             prevSlide(){
                 this.slides[this.activeSlide]._data.isActive = false
                 this.activeSlide--
-                if(this.activeSlide == -1){
+                if(this.activeSlide === -1){
                     this.activeSlide = this.slides.length-1
                 }
                 this.slides[this.activeSlide]._data.isActive = true
