@@ -7,5 +7,5 @@
  */
 ?>
 <?php include(locate_template('template-parts/partials/head.php')); ?>
-<div id="app" class="vue" :class="{ 'full': windowHeight < 768 }">
+<div id="app" class="vue" :class="{ 'full': windowHeight }">
     <?php include(locate_template('template-parts/partials/top.php')); ?>
