@@ -13,7 +13,7 @@ $subhead = ($post->page_information_subhead != '' ? $post->page_information_subh
 ?>
 <div id="mid" >
     <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-        <div class="section-wrapper" >
+        <div class="section-wrapper" style="background-color: #555;" >
 
             <slider>
                     <?php

@@ -1,5 +1,13 @@
 <template>
-    <div :class="['slide',{ 'active':this.isActive }]" :style="{ 'background-image': 'url(' + this.image + ')', 'z-index': zindex }">
+    <div
+            class="slide"
+            :class="{
+                'active': isActive
+            }"
+            :style="{
+                'background-image': 'url(' + image + ')',
+                'z-index': zindex,
+            }">
         <slot></slot>
     </div>
 </template>
@@ -10,17 +18,17 @@
             image: ''
         },
 
-        data(){
+        data () {
             return {
                 id: '',
                 isActive: false
-            };
+            }
         },
 
         computed: {
-            zindex: function(){
-                let index = this.id;
-                return (20 - index);
+            zindex: function () {
+                let index = this.id
+                return (20 - index)
             }
         }
 

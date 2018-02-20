@@ -13,7 +13,7 @@ use Includes\Modules\Navwalker\BulmaNavwalker;
     <nav class="navbar is-transparent">
         <div class="navbar-brand">
             <a href="/">
-                <img src="<?php echo get_template_directory_uri() . '/img/logo.svg'; ?>" alt="Bulma: a modern CSS framework based on Flexbox" width="200" height="60">
+                <img src="<?php echo get_template_directory_uri() . '/img/logo.svg'; ?>" alt="First Baptist Church Port St. Joe" width="200" height="60">
             </a>
 
             <div class="navbar-burger burger" id="TopNavBurger" data-target="TopNavMenu" @click="toggleMenu">

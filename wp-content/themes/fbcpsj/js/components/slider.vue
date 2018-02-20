@@ -26,12 +26,12 @@
         },
 
         created(){
-            this.slides = this.$children
-            setInterval(() => { if(this.paused === false){ this.nextSlide() } }, 6000)
+            this.slides = this.$children;
+            setInterval(() => { if(this.paused === false){ this.nextSlide() } }, 6000);
         },
 
         mounted(){
-            this.$children[0].isActive = true
+            this.$children[0].isActive = true;
         },
 
         methods: {
