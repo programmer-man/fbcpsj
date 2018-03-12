@@ -11,33 +11,26 @@ use Includes\Modules\Events\Events;
 ?>
 <div id="events-section">
     <div class="container">
-        <div class="columns">
+        <div class="columns is-multiline">
             <?php
 
             $eventsLoop = new Events();
             $events     = $eventsLoop->getHomePageEvents(4);
 
             foreach ($events as $num => $event) { ?>
-                <div class="column is-6-tablet is-3-desktop event-<?php echo $num; ?>">
-                    <div class="event-container">
-                        <div class="event-image" style="background-image:url('<?php echo $event['photo']; ?>');">
+                <div class="column is-6-tablet is-3-desktop event-<?php echo $num; ?> has-text-centered">
+                    <div class="card event-container">
+                        <div class=" card-image event-image" style="background-image:url('<?php echo $event['photo']; ?>');">
                             <?php if ($event['details'] == 'on') { ?>
                                 <a href="<?php echo $event['link']; ?>" ></a>
                             <?php } ?>
                         </div>
                         <div class="event-info">
-                            <div class="date">
-                                <span class="day"><?php echo date('d', strtotime($event['start'])); ?></span>
-                                <span class="mon"><?php echo date('M', strtotime($event['start'])); ?></span>
-                            </div>
                             <div class="title-location">
                                 <span class="event-title"><?php echo $event['name']; ?></span>
-                                <?php if($event['location'] != ''){ ?>
-                                <span class="location"><?php echo $event['location']; ?></span>
-                                <?php } ?>
-                                <?php if($event['time'] != ''){ ?>
+                                <span class="event-date"><?php echo $event['recurr_readable']; ?></span>
                                 <span class="time"><?php echo $event['time']; ?></span>
-                                <?php } ?>
+                                <span class="location"><?php echo $event['location']; ?></span>
                             </div>
                         </div>
                         <div class="event-link">

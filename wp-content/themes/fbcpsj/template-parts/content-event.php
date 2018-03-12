@@ -12,8 +12,10 @@ $events = new Events();
 $event = $events->getSingleEvent($post->ID);
 
 $headline = ($post->page_information_headline != '' ? $post->page_information_headline : $post->post_title);
-$subhead = $event['formatted_date'] . ', ' . $event['time'];
+$subhead = ($event['recurr_readable'] != '' ? $event['recurr_readable'] : $event['formatted_date'] . ', ' . $event['time'] );
 $sidebar = ($post->sidebar_content_html != '' ? $post->sidebar_content_html : '');
+
+//echo '<pre>',print_r($event),'</pre>';
 
 
 ?>

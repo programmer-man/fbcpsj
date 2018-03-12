@@ -397,55 +397,42 @@ body {
   }
 
   .event-info {
-    display: flex;
-    padding:1rem 0;
+    padding:1rem;
 
-    .date {
-      min-width: 70px;
-      text-align: center;
-      text-transform: uppercase;
-      color: #126279;
-      border: 1px solid #ddd;
-      padding: .25rem 0;
-      max-height: 77px;
-
-      .day {
-        font-size: 2.8rem;
-        line-height: 2.8rem;
-        display: block;
-      }
-
-      .mon {
-        font-size: 1.25em;
-        line-height: 1em;
-      }
-
-    }
 
     .title-location {
       color: #126279;
-      padding:0 0 0 1rem;
+      font-size: 1.1em;
+      line-height: 1.1em;
 
       .event-title {
+        font-weight: bold;
         display: block;
-        font-size: 1.1em;
-        line-height: 1.1em;
+        min-height: 50px;
         padding-bottom: .5rem;
       }
 
-      .location {
+      .event-date {
         display: block;
+        min-height: 50px;
+        padding-bottom: .5rem;
       }
 
       .time {
         display: block;
         line-height: 1em;
+        min-height: 25px;
+      }
+
+      .location {
+        display: block;
+        min-height: 25px;
       }
     }
   }
 
   .event-link {
-    padding: 0 1rem;
+    padding: 1rem;
     text-align: center;
     margin-bottom: 2rem;
 
@@ -481,6 +468,7 @@ body {
     }
 
     .column {
+      height: 100%;
       min-width: 96%;
       max-width: 96%;
 
@@ -498,41 +486,10 @@ body {
   }
 
   .event-container {
-    background-color: transparent;
-    box-shadow: none;
-
+    height: 100%;
     @media screen and (min-width: $desktop){
       margin-top: -4rem;
     }
-
-    .event-image {
-      border: none;
-    }
-
-    .event-info {
-
-      .date {
-        color: #FFF;
-        border: 1px solid #FFF;
-      }
-
-      .title-location {
-        color: #FFF;
-      }
-    }
-
-    .event-link {
-      padding: 0 1rem;
-      text-align: center;
-      margin-bottom: 0;
-
-      a.button {
-        color: #FFF !important;
-      }
-
-    }
-
-
   }
 
 
