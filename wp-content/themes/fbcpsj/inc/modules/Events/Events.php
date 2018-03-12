@@ -167,11 +167,21 @@ class Events
                 }
                 $i++;
             }
+
+            if ($end != null && $start != $end) {
+                $dateString .= ' from ' . date('M j', strtotime($start)) . ' to ' . date('M j', strtotime($end));
+            }
+        }else{
+
+            if ($end != null && $start != $end) {
+                $dateString .= date('M j, Y', strtotime($start)) . ' to ' . date('M j, Y', strtotime($end));
+            }else{
+                $dateString .= date('M j, Y', strtotime($start));
+            }
+
         }
 
-        if ($end != null && $start != $end) {
-            $dateString .= ' from ' . date('M j', strtotime($start)) . ' to ' . date('M j', strtotime($end));
-        }
+
 
         return $dateString;
     }
