@@ -84,15 +84,15 @@ class FacebookSettings
                     <?php
                     $feed = new FacebookFeed();
 
-                    try{
-                        $results = $feed->fetch(4);
-                        foreach ($results->posts as $result) {
-                            include(locate_template('template-parts/partials/mini-article.php'));
-                        }
+                    // try{
+                    //     $results = $feed->fetch(4);
+                    //     foreach ($results->posts as $result) {
+                    //         include(locate_template('template-parts/partials/mini-article.php'));
+                    //     }
 
-                    } catch (Exception $e){
-                        echo $e->getMessage();
-                    }
+                    // } catch (Exception $e){
+                    //     echo $e->getMessage();
+                    // }
                     ?>
                 </div>
             </div>

@@ -21,7 +21,6 @@ class FacebookInstance
         $this->accessToken = (isset($_SESSION['fb_access_token']) ? $_SESSION['fb_access_token'] : null);
         $this->appId       = '960377764104394';
         $this->appSecret   = 'b518db197f7265df6e1d0f9a9c73bc2b';
-        $this->checkLogin();
 
     }
 
