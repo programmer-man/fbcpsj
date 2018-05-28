@@ -9,12 +9,14 @@ class FacebookSettings
     protected $status;
     protected $facebookPageID;
     protected $facebookToken;
+    protected $facebookExpires;
 
     public function __construct()
     {
         $this->save();
         $this->facebookPageID = get_option('facebook_page_id');
         $this->facebookToken = get_option('facebook_token');
+        $this->facebookExpires = get_option('facebook_expires');
     }
 
     public function setupPage()
@@ -52,6 +54,8 @@ class FacebookSettings
                         isset($_POST['facebook_page_id']) ? sanitize_text_field($_POST['facebook_page_id']) : $this->facebookPageID);
                     update_option('facebook_token',
                         isset($_POST['facebook_token']) ? sanitize_text_field($_POST['facebook_token']) : $this->facebookToken);
+                    update_option('facebook_expires',
+                        isset($_POST['facebook_expires']) ? sanitize_text_field($_POST['facebook_expires']) : $this->facebookExpires);
                 }
 
                 ?>
@@ -61,16 +65,12 @@ class FacebookSettings
                     <input type="hidden" name="facebook_submit_settings" value="yes">
 
                     <?php
-                    if($fbSession->checkLogin() || $hasSavedToken) {
+                    if($this->facebookToken != '') {
                         $fbSession->refreshTokenButton();
                     }else{
                         $fbSession->getTokenButton();
                     }
                     ?>
-
-                    <p class="submit">
-                        <input class="button is-primary" type="submit" name="Submit" value="<?php _e('Update Settings') ?>"/>
-                    </p>
                 </form>
                 <hr>
 

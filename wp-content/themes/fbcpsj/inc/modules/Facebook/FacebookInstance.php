@@ -54,12 +54,13 @@ class FacebookInstance
         $tokenMetadata = $oAuth2Client->debugToken($accessToken->getValue());
 
         echo '<h3>Access Token</h3>';
-        //echo $accessToken->getValue();
-        echo '<input type="text" name="facebook_token" value="'.$accessToken->getValue().'" >';
+        echo $accessToken->getValue();
+        echo '<input type="hidden" name="facebook_token" value="'.$accessToken->getValue().'" >';
 
         echo '<h3>Expires</h3>';
         $expires = $tokenMetadata->getExpiresAt();
         echo '<p>' . $expires->format('r') . '</p>';
+        echo '<input type="hidden" name="facebook_expires" value="'.$expires->format('r').'" >';
 
         if (!$accessToken->isLongLived()) {
             $this->getLongLived($accessToken);
@@ -69,6 +70,12 @@ class FacebookInstance
 
         $_SESSION['fb_access_token'] = (string)$accessToken;
         $this->accessToken           = (string)$accessToken;
+
+        ?>
+        <p class="submit">
+            <input class="button is-primary" type="submit" name="Submit" value="<?php _e('Update Settings') ?>"/>
+        </p>
+        <?php
 
         return true;
 
