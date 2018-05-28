@@ -64,6 +64,7 @@ class FacebookInstance
 
         if (!$accessToken->isLongLived()) {
             $this->getLongLived($accessToken);
+            echo 'this token is not long lived.';
         }else{
             echo 'this token is long lived.';
         }

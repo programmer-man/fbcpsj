@@ -13,7 +13,7 @@ class FacebookFeed
     function __construct ($scope = 'facebook')
     {
         $this->scope        = $scope;
-        $this->accessToken  = FACEBOOK_ACCESS_TOKEN;
+        $this->accessToken  = get_option('facebook_token');
         $this->pageId       = FACEBOOK_PAGE_ID;
         $this->defaultPhoto = '/wp-content/uploads/2017/09/DETRKX3XkAAJ3e3.jpg';
     }
