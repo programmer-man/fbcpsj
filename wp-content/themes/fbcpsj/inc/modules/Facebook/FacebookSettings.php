@@ -3,7 +3,7 @@
 namespace Includes\Modules\Facebook;
 
 use Includes\Modules\Facebook\FacebookInstance;
-use Oncludes\Modules\Facebook\FacebookFeed;
+use Includes\Modules\Facebook\FacebookFeed;
 
 class FacebookSettings
 {
@@ -75,21 +75,21 @@ class FacebookSettings
                     ?>
                 </form>
                 <hr>
+                <div class="columns">
+                    <?php
+                    $feed = new FacebookFeed();
 
-                <?php
-                $feed    = new FacebookFeed();
+                    try{
+                        $results = $feed->fetch(4);
+                        foreach ($results->posts as $result) {
+                            include(locate_template('template-parts/partials/mini-article.php'));
+                        }
 
-                try{
-                    $results = $feed->fetch(4);
-                    foreach ($results->posts as $result) {
-                        include(locate_template('template-parts/partials/mini-article.php'));
+                    } catch (Exception $e){
+                        echo $e->getMessage();
                     }
-
-                } catch (Exception $e){
-                    echo $e->getMessage();
-                }
-                ?>
-
+                    ?>
+                </div>
             </div>
         </div>
         <?php
