@@ -38,7 +38,7 @@ class FacebookSettings
     protected function createSettingsPage(){ 
         $fbSession = new FacebookInstance( '139165192785547' );
         $hasSavedToken = $this->facebookToken != ''; //TODO: check if saved in DB and display
-
+        $fb = new FacebookInstance;
         ?>
         <div class="wrap">
         <h1 class="wp-heading-inline" style="margin-bottom: .5rem;">Facebook Settings</h1>
@@ -50,7 +50,6 @@ class FacebookSettings
             <?php } ?>
             <div>
                 <?php
-
                 if (isset($_POST['facebook_submit_settings']) && $_POST['facebook_submit_settings'] == 'yes') {
                     update_option('facebook_page_id',
                         isset($_POST['facebook_page_id']) ? sanitize_text_field($_POST['facebook_page_id']) : $this->facebookPageID);
@@ -59,7 +58,6 @@ class FacebookSettings
                     update_option('facebook_expires',
                         isset($_POST['facebook_expires']) ? sanitize_text_field($_POST['facebook_expires']) : $this->facebookExpires);
                 }
-
                 ?>
 
                 <form enctype="multipart/form-data" name="facebook_settings" id="facebook_settings" method="post"
@@ -67,6 +65,7 @@ class FacebookSettings
                     <input type="hidden" name="facebook_submit_settings" value="yes">
 
                     <?php
+                    $fbSession->checkLogin();
                     if($hasSavedToken) {
                         $fbSession->refreshTokenButton();
                     }else{

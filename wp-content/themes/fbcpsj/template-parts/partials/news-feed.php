@@ -11,11 +11,18 @@ use KeriganSolutions\FacebookFeed\FacebookFeed;
     <div class="columns">
         <?php
         $feed    = new FacebookFeed();
-        $results = $feed->fetch(4);
 
-        foreach ($results->posts as $result) {
-            include(locate_template('template-parts/partials/mini-article.php'));
-        } ?>
+        try{
+            $results = $feed->fetch(4);
+            foreach ($results->posts as $result) {
+                include(locate_template('template-parts/partials/mini-article.php'));
+            }
+
+        } catch (Exception $e){
+            echo 'Our news feed is temporarily down for maintenance.';
+            echo $e->getMessage();
+        }
+        ?>
     </div>
     <div class="facebook-likes">
         <script>
