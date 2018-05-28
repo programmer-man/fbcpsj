@@ -3,7 +3,7 @@
 namespace Includes\Modules\Facebook;
 
 use Includes\Modules\Facebook\FacebookInstance;
-use Includes\Modules\Facebook\FacebookFeed;
+use KeriganSolutions\FacebookFeed\FacebookFeed;
 
 class FacebookSettings
 {
@@ -18,6 +18,11 @@ class FacebookSettings
         $this->facebookPageID = get_option('facebook_page_id');
         $this->facebookToken = get_option('facebook_token');
         $this->facebookExpires = get_option('facebook_expires');
+
+        //$page_id = FACEBOOK_PAGE_ID;
+        if($this->facebookToken){
+            define('FACEBOOK_ACCESS_TOKEN',$this->facebookToken);
+        }
     }
 
     public function setupPage()
