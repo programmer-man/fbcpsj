@@ -54,7 +54,8 @@ class FacebookInstance
         $tokenMetadata = $oAuth2Client->debugToken($accessToken->getValue());
 
         echo '<h3>Access Token</h3>';
-        echo $accessToken->getValue();
+        //echo $accessToken->getValue();
+        echo '<input type="text" name="facebook_token" value="'.$accessToken->getValue().'" >';
 
         echo '<h3>Expires</h3>';
         $expires = $tokenMetadata->getExpiresAt();
@@ -62,6 +63,8 @@ class FacebookInstance
 
         if (!$accessToken->isLongLived()) {
             $this->getLongLived($accessToken);
+        }else{
+            echo 'this token is long lived.';
         }
 
         $_SESSION['fb_access_token'] = (string)$accessToken;
