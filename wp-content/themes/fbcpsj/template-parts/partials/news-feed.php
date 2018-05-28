@@ -19,7 +19,7 @@ use KeriganSolutions\FacebookFeed\FacebookFeed;
             }
 
         } catch (Exception $e){
-            echo '<p class="text-center">Our news feed is temporarily down for maintenance.</p>';
+            echo '<div class="column"><p class="has-text-centered">Our news feed is temporarily down for maintenance.</p></div>';
             //echo $e->getMessage();
         }
         ?>
