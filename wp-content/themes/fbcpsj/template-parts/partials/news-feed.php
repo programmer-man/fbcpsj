@@ -10,7 +10,7 @@ use KeriganSolutions\FacebookFeed\FacebookFeed;
 
     <div class="columns">
         <?php
-        $feed    = new FacebookFeed();
+        $feed    = new FacebookFeed(get_option('facebook_page_id'), get_option('facebook_token'));
 
         try{
             $results = $feed->fetch(4);
