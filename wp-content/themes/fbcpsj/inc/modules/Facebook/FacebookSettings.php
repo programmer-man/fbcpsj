@@ -18,11 +18,6 @@ class FacebookSettings
         $this->facebookPageID = get_option('facebook_page_id');
         $this->facebookToken = get_option('facebook_token');
         $this->facebookExpires = get_option('facebook_expires');
-
-        //$page_id = FACEBOOK_PAGE_ID;
-        if($this->facebookToken){
-            define('FACEBOOK_ACCESS_TOKEN',$this->facebookToken);
-        }
     }
 
     public function setupPage()
@@ -42,7 +37,7 @@ class FacebookSettings
     }
 
     protected function createSettingsPage(){ 
-        $fbSession = new FacebookInstance( '139165192785547' );
+        $fbSession = new FacebookInstance();
         $hasSavedToken = $this->facebookToken != ''; //TODO: check if saved in DB and display
         $fb = new FacebookInstance;
         ?>
@@ -80,21 +75,6 @@ class FacebookSettings
                     ?>
                 </form>
                 <hr>
-                <div class="columns">
-                    <?php
-                    $feed = new FacebookFeed();
-
-                    // try{
-                    //     $results = $feed->fetch(4);
-                    //     foreach ($results->posts as $result) {
-                    //         include(locate_template('template-parts/partials/mini-article.php'));
-                    //     }
-
-                    // } catch (Exception $e){
-                    //     echo $e->getMessage();
-                    // }
-                    ?>
-                </div>
             </div>
         </div>
         <?php
