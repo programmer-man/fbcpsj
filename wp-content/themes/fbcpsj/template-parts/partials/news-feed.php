@@ -10,17 +10,16 @@ use KeriganSolutions\FacebookFeed\FacebookFeed;
 
     <div class="columns">
         <?php
-        $feed    = new FacebookFeed(get_option('facebook_page_id'), get_option('facebook_token'));
+        $feed = new FacebookFeed(get_option('facebook_page_id'), get_option('facebook_token'));
 
-        try{
+        if(is_array($feed->fetch(4))){
             $results = $feed->fetch(4);
             foreach ($results->posts as $result) {
                 include(locate_template('template-parts/partials/mini-article.php'));
             }
-
-        } catch (Exception $e){
+        }else{
             echo '<div class="column"><p class="has-text-centered">Our news feed is temporarily down for maintenance.</p></div>';
-            //echo $e->getMessage();
+
         }
         ?>
     </div>

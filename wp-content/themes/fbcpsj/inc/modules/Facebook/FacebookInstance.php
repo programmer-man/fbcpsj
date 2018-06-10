@@ -18,10 +18,8 @@ class FacebookInstance
     {
 
         $this->pageId      = get_option('facebook_page_id');;
-        $this->accessToken = (isset($_SESSION['fb_access_token']) ? $_SESSION['fb_access_token'] : null);
         $this->appId       = '960377764104394';
         $this->appSecret   = 'b518db197f7265df6e1d0f9a9c73bc2b';
-
     }
 
     public function checkLogin()
@@ -53,28 +51,40 @@ class FacebookInstance
 
         $tokenMetadata = $oAuth2Client->debugToken($accessToken->getValue());
 
-        echo '<h3>Access Token</h3>';
-        echo $accessToken->getValue();
+        echo '<p><strong>New Token:</strong> '.$accessToken->getValue().'</p>';
         echo '<input type="hidden" name="facebook_token" value="'.$accessToken->getValue().'" >';
 
-        echo '<h3>Expires</h3>';
         $expires = $tokenMetadata->getExpiresAt();
-        echo '<p>' . $expires->format('r') . '</p>';
+        echo '<p><strong>Expires:</strong> ' . $expires->format('r') . '</p>';
         echo '<input type="hidden" name="facebook_expires" value="'.$expires->format('r').'" >';
 
+
+
+        echo '<pre>';
+        var_dump($tokenMetadata);
+        echo '</pre>';
+
+        $tokenMetadata->validateAppId($this->appId);
+        // If you know the user ID this access token belongs to, you can validate it here
+        //$tokenMetadata->validateUserId('123');
+        $tokenMetadata->validateExpiration();
+
         if (!$accessToken->isLongLived()) {
-            $this->getLongLived($accessToken);
-            echo 'this token is not long lived.';
-        }else{
-            echo 'this token is long lived.';
+            // Exchanges a short-lived access token for a long-lived one
+            try {
+                $accessToken = $oAuth2Client->getLongLivedAccessToken($accessToken);
+            } catch (\Facebook\Exceptions\FacebookSDKException $e) {
+                $e->getMessage();
+            }
+            var_dump($accessToken->getValue());
         }
 
-        $_SESSION['fb_access_token'] = (string)$accessToken;
-        $this->accessToken           = (string)$accessToken;
+
+
 
         ?>
         <p class="submit">
-            <input class="button is-primary" type="submit" name="Submit" value="<?php _e('Update Settings') ?>"/>
+            <input class="button is-primary" type="submit" name="Submit" value="<?php _e('Save New Key') ?>"/>
         </p>
         <?php
 
@@ -99,6 +109,34 @@ class FacebookInstance
 
     }
 
+    public function debugToken($accessToken)
+    {
+        $fb = new Facebook([
+            'app_id'                  => $this->appId,
+            'app_secret'              => $this->appSecret,
+            'default_graph_version'   => 'v2.10',
+            'persistent_data_handler' => 'session'
+        ]);
+
+        $oAuth2Client = $fb->getOAuth2Client();
+        $tokenMetadata = $oAuth2Client->debugToken($accessToken);
+
+        echo '<pre>';
+        var_dump($tokenMetadata);
+        echo '</pre>';
+
+        $tokenMetadata->validateAppId($this->appId);
+        // If you know the user ID this access token belongs to, you can validate it here
+        //$tokenMetadata->validateUserId('123');
+        $tokenMetadata->validateExpiration();
+
+        if ($accessToken->isLongLived()) {
+            echo 'no!';
+        }
+
+        return $tokenMetadata;
+    }
+
     public function getLongLived($accessToken)
     {
         $fb = new Facebook([
@@ -118,7 +156,8 @@ class FacebookInstance
         }
 
         echo '<h3>Long-lived</h3>';
-        var_dump($longLived->getValue());
+    
+        var_dump($longLived);
 
     }
 
