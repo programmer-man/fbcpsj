@@ -1,6 +1,6 @@
 <?php
 
-use KeriganSolutions\FacebookFeed\FacebookFeed;
+use Includes\Modules\Facebook\FacebookSettings;
 
 ?>
 <div class="facebook-news">
@@ -10,10 +10,10 @@ use KeriganSolutions\FacebookFeed\FacebookFeed;
 
     <div class="columns">
         <?php
-        $feed = new FacebookFeed(get_option('facebook_page_id'), get_option('facebook_token'));
+        $facebook = new FacebookSettings();
+        $results = $facebook->getFeed(4);
 
-        if(is_array($feed->fetch(4))){
-            $results = $feed->fetch(4);
+        if(is_array($results->posts)){
             foreach ($results->posts as $result) {
                 include(locate_template('template-parts/partials/mini-article.php'));
             }

@@ -20,6 +20,12 @@ class FacebookSettings
         $this->facebookExpires = get_option('facebook_expires');
     }
 
+    public function getFeed($num = 1)
+    {
+        $feed = new FacebookFeed($this->facebookPageID,$this->facebookToken);
+        return $feed->fetch($num);
+    }
+
     public function setupPage()
     {
         $this->createNavLabel();
