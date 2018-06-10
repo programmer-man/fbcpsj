@@ -1,6 +1,5 @@
 .idea/
 .DS_Store
-wp-content/themes/fbcpsj/vendor/
 wp-config.php
 tags
 .user.ini
