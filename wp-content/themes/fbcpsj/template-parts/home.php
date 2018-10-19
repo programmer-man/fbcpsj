@@ -16,10 +16,10 @@ $subhead = ($post->page_information_subhead != '' ? $post->page_information_subh
         <div class="section-wrapper" style="background-color: #555;" >
 
             <slider>
-                    <?php
-                        $slider = new BulmaSlider();
-                        echo $slider->getSlider('home-page-slideshow');
-                    ?>
+                <?php
+                    $slider = new BulmaSlider();
+                    echo $slider->getSlider('home-page-slideshow');
+                ?>
             </slider>
 
         </div>
