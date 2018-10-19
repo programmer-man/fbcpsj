@@ -73,6 +73,6 @@ $subhead = ($post->page_information_subhead != '' ? $post->page_information_subh
 
     </div>
     <div id="news" class="section-wrapper" >
-        <?php include(locate_template('template-parts/partials/news-feed.php')); ?>
+        <?php //include(locate_template('template-parts/partials/news-feed.php')); ?>
     </div>
 </div>
