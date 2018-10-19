@@ -22,7 +22,7 @@ class FacebookReviews
     public function fetch($limit = 5, $before = null, $after = null)
     {
         $facebook = new FacebookRequest($limit, $before, $after);
-        $reviews    = new ReviewsFetcher($this->accessToken,$this->pageId);
+        $reviews    = new ReviewsFetcher();
 
         $response = $facebook->fetch($reviews);
         $parser   = new ReviewParser();

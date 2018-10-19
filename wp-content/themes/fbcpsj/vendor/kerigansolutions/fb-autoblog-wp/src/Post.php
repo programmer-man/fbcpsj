@@ -15,7 +15,7 @@ class Post
 
     public function format()
     {
-        $fetcher = new EventsFetcher($this->accessToken,$this->pageId);
+        $fetcher = new EventsFetcher();
 
         if ($this->data->type == 'video') {
             $video            = new Video();

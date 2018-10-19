@@ -20,7 +20,7 @@ class FacebookEvents
     public function fetch($limit = 5, $before = null, $after = null)
     {
         $facebook = new FacebookRequest($limit, $before, $after);
-        $events   = new EventsFetcher($this->accessToken,$this->pageId);
+        $events   = new EventsFetcher();
         $response = $facebook->fetch($events);
         $feed     = new Feed(new EventParser(), $response);
 
