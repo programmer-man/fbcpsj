@@ -493,7 +493,13 @@ body {
     }
   }
 
+}
 
+#storm {
+  position: relative;
+  z-index: 500;
+  background-color:#343434;
+  padding: 2rem;
 }
 
 #sermons-section {
