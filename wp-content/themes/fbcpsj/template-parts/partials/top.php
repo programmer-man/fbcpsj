@@ -37,10 +37,10 @@ use Includes\Modules\Navwalker\BulmaNavwalker;
             ) ); ?>
         </div>
 
-        <div class="service-times">
+        <!-- <div class="service-times">
             <p>Classic/Choir Service: <strong>8:30 am</strong><br>
              Sunday School: <strong>9:45 am</strong><br>
              All-Contemporary Service: <strong>10:45 am</strong></p>
-        </div>
+        </div> -->
     </nav>
 </header>
