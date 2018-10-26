@@ -208,14 +208,26 @@ body {
       }
 
       .slide-content {
-        padding: 1rem 2rem;
+        padding: 1rem;
+        text-shadow: 0 0 10px rgba(0,0,0,.8);
+
+        @media screen and (min-width: $tablet) {
+          padding: 1rem 3rem;
+          text-shadow: 0 0 10px rgba(0,0,0,.2);
+        }
+
+        @media screen and (min-width: $desktop) {
+          padding: 1rem 5rem;
+        }
 
         .slider-title {
-          font-size: 1em;
+          font-size: 2em;
+          line-height: 1.2em;
           color: #FFF;
-          text-shadow: 0 0 10px rgba(0,0,0,.3);
+          text-shadow: 0 0 10px rgba(0,0,0,.8);
 
           @media screen and (min-width: $tablet) {
+            text-shadow: 0 0 10px rgba(0,0,0,.3);
             font-size: 3em;
           }
         }
