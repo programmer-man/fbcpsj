@@ -94,7 +94,7 @@
 .slides,
 .slide {
   display: block;
-  height:300px;
+  height: calc(100vh - 120px);
   -webkit-transition: opacity linear 1.5s;
   transition:opacity linear 1.5s;
   @media screen and (min-width: $tablet){
@@ -116,6 +116,11 @@
 .slider-left {
   z-index: 30;
   color:#FFF;
+  display: none;
+
+  @media screen and (min-width: $tablet){
+    display: block;
+  }
 
 }
 
