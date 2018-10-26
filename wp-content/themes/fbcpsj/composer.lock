@@ -1,9 +1,10 @@
 {
     "_readme": [
         "This file locks the dependencies of your project to a known state",
-        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
+    "hash": "45866ce6ac69dbbaf3d158b8fb171a01",
     "content-hash": "1b01f8215994c5fd68004b922e3cc62e",
     "packages": [
         {
@@ -62,7 +63,7 @@
                 "facebook",
                 "sdk"
             ],
-            "time": "2018-07-03T02:25:00+00:00"
+            "time": "2018-07-03 02:25:00"
         },
         {
             "name": "guzzlehttp/guzzle",
@@ -127,7 +128,7 @@
                 "rest",
                 "web service"
             ],
-            "time": "2018-04-22T15:46:56+00:00"
+            "time": "2018-04-22 15:46:56"
         },
         {
             "name": "guzzlehttp/promises",
@@ -178,7 +179,7 @@
             "keywords": [
                 "promise"
             ],
-            "time": "2016-12-20T10:07:11+00:00"
+            "time": "2016-12-20 10:07:11"
         },
         {
             "name": "guzzlehttp/psr7",
@@ -243,7 +244,7 @@
                 "uri",
                 "url"
             ],
-            "time": "2017-03-20T17:10:46+00:00"
+            "time": "2017-03-20 17:10:46"
         },
         {
             "name": "kerigansolutions/fb-autoblog-wp",
@@ -279,7 +280,7 @@
                     "email": "daron.adkins@gmail.com"
                 }
             ],
-            "time": "2018-03-23T16:34:03+00:00"
+            "time": "2018-03-23 16:34:03"
         },
         {
             "name": "nesbot/carbon",
@@ -334,7 +335,7 @@
                 "datetime",
                 "time"
             ],
-            "time": "2018-09-20T19:36:25+00:00"
+            "time": "2018-09-20 19:36:25"
         },
         {
             "name": "psr/http-message",
@@ -384,7 +385,7 @@
                 "request",
                 "response"
             ],
-            "time": "2016-08-06T14:39:51+00:00"
+            "time": "2016-08-06 14:39:51"
         },
         {
             "name": "symfony/polyfill-mbstring",
@@ -443,7 +444,7 @@
                 "portable",
                 "shim"
             ],
-            "time": "2018-08-06T14:22:27+00:00"
+            "time": "2018-08-06 14:22:27"
         },
         {
             "name": "symfony/translation",
@@ -512,7 +513,7 @@
             ],
             "description": "Symfony Translation Component",
             "homepage": "https://symfony.com",
-            "time": "2018-10-02T16:36:10+00:00"
+            "time": "2018-10-02 16:36:10"
         }
     ],
     "packages-dev": [
@@ -560,7 +561,7 @@
             ],
             "description": "scssphp is a compiler for SCSS written in PHP.",
             "homepage": "http://leafo.net/scssphp/",
-            "time": "2014-08-05T05:45:15+00:00"
+            "time": "2014-08-05 05:45:15"
         },
         {
             "name": "panique/laravel-sass",
@@ -604,7 +605,7 @@
                 "sass",
                 "scss"
             ],
-            "time": "2014-11-09T01:35:34+00:00"
+            "time": "2014-11-09 01:35:34"
         }
     ],
     "aliases": [],
