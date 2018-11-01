@@ -42,8 +42,8 @@ use Includes\Modules\Events\Events;
                 </div>
             <?php } ?>
         </div>
-        <div class="section-close is-centered">
+        <!-- <div class="section-close is-centered">
             <a class="button is-info is-pill" href="/events/">All events</a>
-        </div>
+        </div> -->
     </div>
 </div>
