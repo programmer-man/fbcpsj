@@ -24,10 +24,10 @@ $subhead = ($post->page_information_subhead != '' ? $post->page_information_subh
 
         </div>
     </article>
-    <!-- <div id="events" class="section-wrapper" >
-        <?php //include(locate_template('template-parts/partials/events-loop.php')); ?>
+    <div id="events" class="section-wrapper" >
+        <?php include(locate_template('template-parts/partials/events-loop.php')); ?>
     </div>
-    <div id="sermons" class="section-wrapper" >
+    <!--<div id="sermons" class="section-wrapper" >
         <?php //include(locate_template('template-parts/partials/sermons.php')); ?>
     </div> -->
     <div id="storm" class="section-wrapper">
