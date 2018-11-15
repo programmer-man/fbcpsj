@@ -95,19 +95,19 @@ class Leads
 		if ($dataSubmitted['full_name'] == '') {
 			$passCheck = false;
         }
-        if (function_exists('akismet_verify_key') && !empty(akismet_get_key())){
-            $comment = [
-                'blog' => site_url(),
-                'user_ip' => $dataSubmitted['ip_address'],
-                'user_agent' => $dataSubmitted['user_agent'],
-                'referrer' => $dataSubmitted['referrer'],
-                'comment_content' => $dataSubmitted['message']
-            ];
-            $fuspam = $this->fuspam($comment, 'check-spam', akismet_get_key());
-            if ($fuspam) {
-                $passCheck = false;
-            }
-        }
+        // if (function_exists('akismet_verify_key') && !empty(akismet_get_key())){
+        //     $comment = [
+        //         'blog' => site_url(),
+        //         'user_ip' => $dataSubmitted['ip_address'],
+        //         'user_agent' => $dataSubmitted['user_agent'],
+        //         'referrer' => $dataSubmitted['referrer'],
+        //         'comment_content' => $dataSubmitted['message']
+        //     ];
+        //     $fuspam = $this->fuspam($comment, 'check-spam', akismet_get_key());
+        //     if ($fuspam) {
+        //         $passCheck = false;
+        //     }
+        // }
 
 		return $passCheck;
 
