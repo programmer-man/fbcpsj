@@ -5,7 +5,7 @@
  use Includes\Modules\Layouts\Layouts;
  use Includes\Modules\Navwalker\BulmaNavwalker;
  use Includes\Modules\Social\SocialSettingsPage;
-use Includes\Modules\Facebook\FacebookSettings;
+ use Includes\Modules\Facebook\FacebookSettings;
  use Includes\Modules\Sermons\Sermons;
  use Includes\Modules\Team\Team;
  use Includes\Modules\Services\Ministries;
