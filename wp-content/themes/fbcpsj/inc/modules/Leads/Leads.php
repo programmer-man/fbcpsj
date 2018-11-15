@@ -190,7 +190,8 @@ class Leads
         } while ( ($i < 5) and ($result === false) );
         
         if ($result === false){ 
-            $result = "Error: Repeat Failure"; 
+            // not spam on error
+            $result = false; 
         }
             
         return $result;
