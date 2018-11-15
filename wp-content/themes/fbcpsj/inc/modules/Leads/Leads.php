@@ -180,19 +180,18 @@ class Leads
         curl_setopt($curl,CURLOPT_RETURNTRANSFER,true);
         
         $i = 0;
-        do
-            {
+        do {
             $result = curl_exec($curl);
             
             if ($result === false)
                 { sleep(1); }
             
             $i++;
-            }
-        while ( ($i < 6) and ($result === false) );
+        } while ( ($i < 5) and ($result === false) );
         
-        if ($result === false)
-            { $result = "Error: Repeat Failure"; }
+        if ($result === false){ 
+            $result = "Error: Repeat Failure"; 
+        }
             
         return $result;
 	}

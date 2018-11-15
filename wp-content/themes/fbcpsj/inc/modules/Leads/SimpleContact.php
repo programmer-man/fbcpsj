@@ -13,8 +13,8 @@ class SimpleContact extends Leads
 			]
 		);
 		parent::set('postType', 'Contact Submission');
-		//parent::set('adminEmail','fbcpsj@gtcom.net');
-		//parent::set('ccEmail','boydevans@fairpoint.net'); //Admin notification only
+		parent::set('adminEmail','fbcpsj@gtcom.net');
+		parent::set('ccEmail','boydevans@fairpoint.net'); //Admin notification only
         parent::set('bccEmail','bbaird85@gmail.com');
 	}
 
