@@ -12,10 +12,23 @@ use Includes\Modules\Navwalker\BulmaNavwalker;
 <div id="bot" class="centered">
 
     <div class="footer-contact">
-        <p><a href="tel:850-227-1552" >850-227-1552</a></p>
-        <p>102 Third St.<br>
-            Port St. Joe, FL 32456</p>
-        <p><a target="_blank" href="https://www.google.com/maps/dir//102+Third+Street+Port+Saint+Joe,+FL+32456/@29.813375,-85.3395991,13z/data=!3m1!4b1!4m9!4m8!1m0!1m5!1m1!1s0x88949665a2c8f611:0x14d60cdf286d5335!2m2!1d-85.3045797!2d29.8133796!3e0" >Get Directions</p>
+        <div class="columns is-multiline is-centered">
+            <div class="column contact">
+                <p><strong>Contact the Church Office:</strong></p>
+                <p><a href="tel:850-227-1552" >850-227-1552</a><br>
+                <a href="mailto:fbcpsj@gtcom.net" >fbcpsj@gtcom.net</a></p>
+            </div>
+            <div class="column physical">
+                <p><strong>Office Hours: 8:00 AM - 5:00 PM</strong></p>
+                <p>528 6th St.<br>
+                    Port St. Joe, FL 32456</p>
+            </div>
+            <div class="column mailing">
+                <p><strong>Mailing Address:</strong></p>
+                <p>528 6th St.<br>
+                    Port St. Joe, FL 32456</p>
+            </div>
+        </div>
     </div>
 
     <div class="bottom-nav">
