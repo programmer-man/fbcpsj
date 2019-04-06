@@ -27,9 +27,9 @@ $subhead = ($post->page_information_subhead != '' ? $post->page_information_subh
     <div id="events" class="section-wrapper" >
         <?php include(locate_template('template-parts/partials/events-loop.php')); ?>
     </div>
-    <!--<div id="sermons" class="section-wrapper" >
-        <?php //include(locate_template('template-parts/partials/sermons.php')); ?>
-    </div> -->
+    <div id="sermons" class="section-wrapper" >
+        <?php include(locate_template('template-parts/partials/sermons.php')); ?>
+    </div>
     <div id="storm" class="section-wrapper" style="padding:4rem 2rem;">
 
         <div class="columns is-multiline" >
@@ -64,8 +64,8 @@ $subhead = ($post->page_information_subhead != '' ? $post->page_information_subh
         </div>
 
         </div>
-        <div class="column is-half" style="color: #FFF; padding:1rem 2rem">
-            <h2 class="title is-2" style="color: #FFF;">Welcome!</h2>
+        <div class="column is-half" style="padding:1rem 2rem">
+            <h2 class="title is-2" >Welcome!</h2>
             <p class="is-white">On October 10, 2018 Hurricane Michael, the strongest hurricane to ever hit the panhandle of Florida, slammed into Port St. Joe and our surrounding communities, leaving a path of destruction in its wake. We are unable to meet in our building at 102 Third St. and are blessed to be able to meet at the Port St. Joe Elemenary School Auditorium on Sundays. </p>
             &nbsp;
             <p>If you'd like to help by serving, providing relief items, message us on Facebook or give us a call and we'll connect you to the right emergency personnel. 
@@ -84,6 +84,6 @@ $subhead = ($post->page_information_subhead != '' ? $post->page_information_subh
             </div>
     </div>
     <div id="news" class="section-wrapper" >
-        <?php //include(locate_template('template-parts/partials/news-feed.php')); ?>
+        <?php include(locate_template('template-parts/partials/news-feed.php')); ?>
     </div>
 </div>
