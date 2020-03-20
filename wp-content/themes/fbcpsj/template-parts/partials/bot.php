@@ -25,8 +25,8 @@ use Includes\Modules\Navwalker\BulmaNavwalker;
             </div>
             <div class="column mailing">
                 <p><strong>Mailing Address:</strong></p>
-                <p>528 6th St.<br>
-                    Port St. Joe, FL 32456</p>
+                <p>P.O. Box 628.<br>
+                    Port St. Joe, FL 32457</p>
             </div>
         </div>
     </div>
