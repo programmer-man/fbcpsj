@@ -25,7 +25,12 @@ $sermonObject = new Sermons();
         <?php if($recent['vimeo'] != ''){ ?>
         <div class="box">
             <div class="embed-responsive">
-            <iframe :src="'https://player.vimeo.com/video/<?php echo $recent['vimeo']; ?>?autoplay=1&title=0&byline=0&portrait=0'" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+            <iframe 
+                :src="'https://player.vimeo.com/video/<?php echo $recent['vimeo']; ?>?autoplay=1&title=0&byline=0&portrait=0'" 
+                frameborder="0" 
+                webkitallowfullscreen mozallowfullscreen allowfullscreen
+                style="width:100%;"
+            ></iframe>
             </div>
         </div>
         <?php }else{ ?>
