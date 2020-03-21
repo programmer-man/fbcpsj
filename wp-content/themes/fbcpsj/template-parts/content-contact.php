@@ -32,18 +32,13 @@ $sidebar = ($post->sidebar_content_html != '' ? $post->sidebar_content_html : ''
         </section>
         <section id="content" class="content section">
             <div class="container">
-                <div class="columns is-multiline">
-                    <div class="column is-6">
-                        <div class="entry-content">
-                            <?php
-                            the_content();
-                            ?>
-                        </div><!-- .entry-content -->
-                    </div>
-                    <div class="column is-6">
-	                    <?php echo do_shortcode('[contact_form]'); ?>
-                    </div>
-                </div>
+
+                <div class="entry-content">
+                    <?php
+                    the_content();
+                    ?>
+                </div><!-- .entry-content -->
+
             </div>
         </section>
     </article><!-- #post-## -->
