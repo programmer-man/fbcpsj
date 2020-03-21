@@ -5,12 +5,10 @@
  use Includes\Modules\Layouts\Layouts;
  use Includes\Modules\Navwalker\BulmaNavwalker;
  use Includes\Modules\Social\SocialSettingsPage;
- use Includes\Modules\Facebook\FacebookSettings;
  use Includes\Modules\Sermons\Sermons;
  use Includes\Modules\Team\Team;
  use Includes\Modules\Services\Ministries;
  use Includes\Modules\Leads\Leads;
- use Includes\Modules\Leads\SimpleContact;
 
 require('vendor/autoload.php');
 
@@ -28,13 +26,6 @@ add_action('init', function (){
  */
 
 function fbcpsj_setup() {
-
-    $facebookSettingsPage = new FacebookSettings();
-    $facebookSettingsPage->setupPage();
-
-	$contact = new SimpleContact;
-	$contact->setupAdmin();
-	$contact->setupShortcode();
 
     $slider = new BulmaSlider();
     $slider->createPostType();
