@@ -98,3 +98,20 @@ add_action( 'wp_enqueue_scripts', 'fbcpsj_scripts' );
 
 //Remove WordPress's content filtering so we can make our own tags AND use them.
 // remove_filter( 'the_content', 'wpautop' );
+
+add_filter( 'wpmem_notify_addr', 'my_admin_email' );
+ 
+function my_admin_email( $email ) {
+ 
+    // single email example
+    // $email = 'fbcpsj@gtcom.net';
+     
+    // multiple emails example
+    // $email = 'notify1@mydomain.com, notify2@mydomain.com';
+     
+    // take the default and append a second address to it example:
+    $email = $email . ', fbcpsj@gtcom.net';
+     
+    // return the result
+    return $email;
+}
