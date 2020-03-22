@@ -264,9 +264,7 @@ class Sermons {
 
     public function getNext(){
 
-	    $request = $this->getSermons([
-            'order'          => 'ASC'
-        ],null,1);
+	    $request = $this->getSermons([],null,1);
 
 	    if(!empty($request)){
 		    $output = $request;
