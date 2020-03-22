@@ -17,7 +17,7 @@ $sermonObject = new Sermons();
         <div class="container has-text-centered">
         <h2 class="title is-size-2" style="font-family: 'Playfair Display',serif; font-weight: 700;">Upcoming Online Sermon</h2>
         <?php
-            $recent = ($sermonObject->getUpcoming([], null, 1))[0];
+            $recent = ($sermonObject->getNext([], null, 1))[0];
         ?>
         <p class="sermon-name is-size-4"><?php echo $recent['name']; ?></p>
         <p class="sermon-date is-size-4"><?php echo date('F j, Y', strtotime($recent['date'])); ?></p>
