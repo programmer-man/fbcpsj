@@ -15,7 +15,7 @@ $sermonObject = new Sermons();
 <div id="events" class="section-wrapper" >
     <div id="events-section" style="padding: 6rem 0 8rem;">
         <div class="container has-text-centered">
-        <h2 class="title is-size-2" style="font-family: 'Playfair Display',serif; font-weight: 700;">Upcoming Online Sermon</h2>
+        <h2 class="title is-size-2" style="font-family: 'Playfair Display',serif; font-weight: 700;">Current Message</h2>
         <?php
             $recent = ($sermonObject->getNext([], null, 1))[0];
         ?>
