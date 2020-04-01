@@ -60,7 +60,7 @@ $sermonObject = new Sermons();
                         <?php echo apply_filters('the_content', get_term_meta($series[0]->term_id, 'series_series_verse', true)); ?>
                     </div>
 
-                    <h3>Upcoming Sermons</h3>
+                    <h3>Upcoming Messages</h3>
                     <div class="upcoming-sermons">
                         <?php
                         $upcoming = $sermonObject->getUpcoming();
@@ -83,7 +83,7 @@ $sermonObject = new Sermons();
                     </div>
                 </div>
                 <div class="column is-6-desktop">
-                    <h3>Recent Sermons</h3>
+                    <h3>Recent Messages</h3>
                     <div class="recently-published-sermons">
                         <?php
                         $recentlyPublished = $sermonObject->getRecentlyPublished();
