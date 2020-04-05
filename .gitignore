@@ -9,3 +9,4 @@ php.ini
 wp-content/uploads/
 wp-content/plugins/
 wp-content/node_modules/
+wp-content/wflogs/*
