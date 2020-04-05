@@ -11,14 +11,17 @@ use Includes\Modules\Sermons\Sermons;
 
 $sermonObject = new Sermons();
 
+$recent = ($sermonObject->getNext([], null, 1))[0];
+
+// echo $recent['date'];
+// echo ' = ';
+// echo date('Ymd');
 ?>
 <div id="events" class="section-wrapper" >
     <div id="events-section" style="padding: 6rem 0 8rem;">
         <div class="container has-text-centered">
-        <h2 class="title is-size-2" style="font-family: 'Playfair Display',serif; font-weight: 700;">Current Message</h2>
-        <?php
-            $recent = ($sermonObject->getNext([], null, 1))[0];
-        ?>
+        <h2 class="title is-size-2" style="font-family: 'Playfair Display',serif; font-weight: 700;">
+            <?php echo ($recent['date'] > date('Ymd') ? 'Upcoming' : 'Current' ); ?> Message</h2>
         <p class="sermon-name is-size-4"><?php echo $recent['name']; ?></p>
         <p class="sermon-date is-size-4"><?php echo date('F j, Y', strtotime($recent['date'])); ?></p>
         &nbsp;
@@ -38,6 +41,17 @@ $sermonObject = new Sermons();
                 <p>Check back Sunday morning for the video!</p>
             </div>
         <?php } ?>
+
+        <div class="columns" >
+            <?php if($recent['notes']!='') {?>
+            <div class="column is-6-desktop">
+                <a href="<?php echo $recent['notes']['url']; ?>" target="_blank" class="button is-info" >Download Message Notes</a>
+            </div>
+            <?php } ?>
+            <div class="column is-6-desktop">
+                <a href="/connection-card/" class="button is-info" >Complete Connection Card</a>
+            </div>
+        </div>
 
         <?php //include(locate_template('template-parts/partials/events-loop.php')); ?>
         </div>
