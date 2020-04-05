@@ -1,12 +1,12 @@
 .idea/
 .DS_Store
-wp-config.php
+/wp-config.php
 tags
 .user.ini
 php.ini
 *error_log
 */cache/
-wp-content/uploads/
-wp-content/plugins/
+#wp-content/uploads/
+#wp-content/plugins/
 wp-content/node_modules/
 wp-content/wflogs/*
