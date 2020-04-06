@@ -278,12 +278,16 @@ class Sermons {
         ],null,1);
 
 	    if(!empty($request)){
-		    $output = $request;
-	    }else{
-		    $output = 'Check back soon!';
-	    }
 
-        return $output;
+            return $request;
+            
+	    }else{
+
+            return $this->getSermons([
+                'order' => 'DESC'
+            ],null,1);
+
+	    }
 
     }
 
