@@ -49,7 +49,7 @@ use Includes\Modules\Navwalker\BulmaNavwalker;
 <footer id="bot-bot" >
     <div class="container">
         <div class="content has-text-centered">
-            <p id="copyright">&copy; <?php echo date('Y'); ?> <?php echo get_bloginfo(); ?>. All rights reserved.</p>
+            <p id="copyright">&copy; <?php echo date('Y'); ?> <?php echo get_bloginfo(); ?>. All&nbsp;rights&nbsp;reserved.</p>
         </div>
     </div>
 </footer>
