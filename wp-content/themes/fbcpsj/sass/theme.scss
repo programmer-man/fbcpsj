@@ -468,9 +468,6 @@ body {
   @media screen and (min-width: $desktop){
     padding: 0 0 5rem 0;
   }
-  @media screen and (min-width: $fullhd){
-    padding: 0 0 8rem 0;
-  }
 
   .columns {
     flex-wrap: wrap;
@@ -526,31 +523,6 @@ body {
   @media screen and (min-width: $desktop){
     padding: 5rem 0;
   }
-  @media screen and (min-width: $fullhd){
-    padding: 8rem 0;
-  }
-
-  .columns {
-    flex-wrap: wrap;
-    display: flex;
-    justify-content: center;
-    margin: 0;
-    @media screen and (min-width: $tablet) {
-      margin-left: -0.75rem;
-      margin-right: -0.75rem;
-      margin-top: -0.75rem;
-    }
-
-    .column {
-      min-width: 96%;
-      max-width: 96%;
-
-      @media screen and (min-width: 768px) {
-        min-width: 48%;
-        max-width: 48%;
-      }
-    }
-  }
 
   h2 {
     font-family: $header-font-family;
@@ -569,74 +541,54 @@ body {
     margin: 2rem 0 .5rem;
   }
 
-  .current-series,
-  .sermon-snippet {
-    text-align: center;
-    padding: 1rem 0 .5rem;
-    @media screen and (min-width: $tablet) {
-      padding: 1rem 0 .5rem;
-    }
+  .recently-published-sermons {
 
-    p {
-      color:#FFF;
-      margin: 0;
-    }
+    .message-snippet {
+      padding:1rem;
+      align-items: center;
+      border-bottom: 1px solid rgba(255,255,255,.5);
 
-    .sermon-name {
-      font-size: 1.3em;
-    }
-
-    .sermon-date {
-      color: #32b671;
-    }
-
-  }
-
-  .current-series {
-
-    .series-verse {
-      font-style: italic;
-      padding: 1rem 1rem 0;
-    }
-  }
-
-  @media screen and (min-width: $desktop) {
-    .sermon-snippet.has-button {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-
-      .sermon-title {
-        width:100%;
+      &:last-child {
+        border-bottom: 0;
       }
 
-      .sermon-info {
+      p.title {
+        color: #fff;
+      }
+
+      p.subtitle {
+        color: rgba(255,255,255,.5);
+
+        .sermon-date {
+          color: #32B671;
+        }
+      }
+
+      .message-buttons {
         display: flex;
-        justify-content: center;
-        align-items: center;
-        text-align:center;
-        flex-wrap: wrap;
 
-        .sermon-stuff,
-        .sermon-button {
-          width:200px;
+        @media screen and (min-width: 768px){
+          justify-content: flex-end;
         }
 
-        div {
-          padding:0 .5rem;
+        .button {
+          margin: auto 1rem;
         }
-      }
 
-      a {
-        border-color: #32b671;
-        color: #32b671;
+        .is-brand {
+          /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#33bce3+0,32b671+100 */
+          background: rgb(51,188,227); /* Old browsers */
+          background: -moz-linear-gradient(-45deg,  rgba(51,188,227,1) 0%, rgba(50,182,113,1) 100%); /* FF3.6-15 */
+          background: -webkit-linear-gradient(-45deg,  rgba(51,188,227,1) 0%,rgba(50,182,113,1) 100%); /* Chrome10-25,Safari5.1-6 */
+          background: linear-gradient(135deg,  rgba(51,188,227,1) 0%,rgba(50,182,113,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+          filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#33bce3', endColorstr='#32b671',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+
+        }
       }
     }
 
-    .sermon-snippet.centered {
-      text-align: center;
-    }
   }
+
 
 }
 
