@@ -57,7 +57,8 @@ class Sermons {
         $sermons->addMetaBox( 'Sermon Details', array(
             'Vimeo Code'  => 'text',
             'Sermon Date' => 'date',
-            'Show'        => 'boolean'
+            'Show'        => 'boolean',
+            'Notes'       => 'upload'
         ) );
 
         $sermons->createTaxonomyMeta( 'series', [ 'label' => 'Series Verse', 'type' => 'wysiwyg' ] );
@@ -184,6 +185,7 @@ class Sermons {
                 'show'  => ( isset( $post->sermon_details_show ) ? $post->sermon_details_show : null ),
                 'series' => ( isset($term[0]) ? $term[0]->name : ''),
                 'link'  => get_permalink( $post->ID ),
+                'notes' => get_field('message_notes', $post->ID)
             ];
 
         }
@@ -262,6 +264,31 @@ class Sermons {
     }
 
 
+    public function getNext(){
 
+	    $request = $this->getSermons([
+            'order'          => 'ASC',
+            'meta_query'     => [
+                [
+                    'key'     => 'sermon_details_sermon_date',
+                    'value'   => date('Ymd'),
+                    'compare' => '>='
+                ]
+            ]
+        ],null,1);
+
+	    if(!empty($request)){
+
+            return $request;
+            
+	    }else{
+
+            return $this->getSermons([
+                'order' => 'DESC'
+            ],null,1);
+
+	    }
+
+    }
 
 }

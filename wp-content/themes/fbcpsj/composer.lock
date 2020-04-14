@@ -4,6 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
+    "hash": "022094dcf52495c86a485e33d12c5651",
     "content-hash": "bf221f3018b7bee896b8092195fa588c",
     "packages": [
         {
@@ -62,7 +63,7 @@
                 "facebook",
                 "sdk"
             ],
-            "time": "2018-07-03T02:25:00+00:00"
+            "time": "2018-07-03 02:25:00"
         },
         {
             "name": "gothick/php-akismet",
@@ -105,7 +106,7 @@
             ],
             "description": "Akismet PHP Client",
             "homepage": "https://github.com/gothick/phpbb-akismet",
-            "time": "2017-09-21T00:00:00+00:00"
+            "time": "2017-09-21 00:00:00"
         },
         {
             "name": "guzzlehttp/guzzle",
@@ -170,7 +171,7 @@
                 "rest",
                 "web service"
             ],
-            "time": "2018-04-22T15:46:56+00:00"
+            "time": "2018-04-22 15:46:56"
         },
         {
             "name": "guzzlehttp/promises",
@@ -221,7 +222,7 @@
             "keywords": [
                 "promise"
             ],
-            "time": "2016-12-20T10:07:11+00:00"
+            "time": "2016-12-20 10:07:11"
         },
         {
             "name": "guzzlehttp/psr7",
@@ -286,7 +287,7 @@
                 "uri",
                 "url"
             ],
-            "time": "2017-03-20T17:10:46+00:00"
+            "time": "2017-03-20 17:10:46"
         },
         {
             "name": "kerigansolutions/fb-autoblog-wp",
@@ -322,7 +323,7 @@
                     "email": "daron.adkins@gmail.com"
                 }
             ],
-            "time": "2018-03-23T16:34:03+00:00"
+            "time": "2018-03-23 16:34:03"
         },
         {
             "name": "nesbot/carbon",
@@ -380,7 +381,7 @@
                 "datetime",
                 "time"
             ],
-            "time": "2018-11-14T21:55:58+00:00"
+            "time": "2018-11-14 21:55:58"
         },
         {
             "name": "psr/http-message",
@@ -430,7 +431,7 @@
                 "request",
                 "response"
             ],
-            "time": "2016-08-06T14:39:51+00:00"
+            "time": "2016-08-06 14:39:51"
         },
         {
             "name": "symfony/polyfill-mbstring",
@@ -489,7 +490,7 @@
                 "portable",
                 "shim"
             ],
-            "time": "2018-09-21T13:07:52+00:00"
+            "time": "2018-09-21 13:07:52"
         },
         {
             "name": "symfony/translation",
@@ -558,7 +559,7 @@
             ],
             "description": "Symfony Translation Component",
             "homepage": "https://symfony.com",
-            "time": "2018-10-28T18:38:52+00:00"
+            "time": "2018-10-28 18:38:52"
         }
     ],
     "packages-dev": [
@@ -606,7 +607,7 @@
             ],
             "description": "scssphp is a compiler for SCSS written in PHP.",
             "homepage": "http://leafo.net/scssphp/",
-            "time": "2014-08-05T05:45:15+00:00"
+            "time": "2014-08-05 05:45:15"
         },
         {
             "name": "panique/laravel-sass",
@@ -650,7 +651,7 @@
                 "sass",
                 "scss"
             ],
-            "time": "2014-11-09T01:35:34+00:00"
+            "time": "2014-11-09 01:35:34"
         }
     ],
     "aliases": [],

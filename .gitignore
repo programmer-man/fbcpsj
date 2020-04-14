@@ -1,4 +1,5 @@
-.idea/
+.idea
+.vscode
 .DS_Store
 wp-config.php
 tags
@@ -8,4 +9,8 @@ php.ini
 */cache/
 wp-content/uploads/
 wp-content/plugins/
-wp-content/node_modules/
+wp-content/themes/fbcpsj/node_modules
+wp-content/themes/fbcpsj/vendor/
+wp-content/wflogs/
+wp-includes/
+wp-admin/
