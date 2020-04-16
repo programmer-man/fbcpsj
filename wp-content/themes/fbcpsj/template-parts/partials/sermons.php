@@ -44,16 +44,39 @@ $recent = ($sermonObject->getNext([], null, 1))[0];
 
         <div class="columns" >
             <?php if($recent['notes']!='') {?>
-            <div class="column is-6-desktop">
-                <a href="<?php echo $recent['notes']['url']; ?>" target="_blank" class="button is-info" >Download Message Notes</a>
+            <div class="column is-4-desktop">
+                <a href="<?php echo $recent['notes']['url']; ?>" target="_blank" class="button is-fullwidth is-info" >Download Message Notes</a>
             </div>
             <?php } ?>
-            <div class="column is-6-desktop">
-                <a href="/connection-card/" class="button is-info" >Complete Connection Card</a>
+            <div class="column is-4-desktop">
+                <a href="/connection-card/" class="button is-fullwidth is-info" >Complete Connection Card</a>
+            </div>
+            <div class="column is-4-desktop">
+                <a href="/give/" class="button is-fullwidth is-info" >Tithe & Giving</a>
             </div>
         </div>
 
         <?php //include(locate_template('template-parts/partials/events-loop.php')); ?>
+        </div>
+    </div>
+</div>
+<div class="columns is-gapless is-multiline feat-buttons">
+    <div class="column is-4">
+        <div class="feat-button ministries">
+            <a href="/ministries/" >Children, Youth<br>& Adult Ministries</a>
+            <div class="overlay"></div>
+        </div>
+    </div>
+    <div class="column is-4">
+        <div class="feat-button prayer">
+            <a href="/prayer/" >Ask for Prayer</a>
+            <div class="overlay"></div>
+        </div>
+    </div>
+    <div class="column is-4">
+        <div class="feat-button goodnews">
+            <a href="/the-good-news/" >I am Becoming a<br>Follower of Jesus</a>
+            <div class="overlay"></div>
         </div>
     </div>
 </div>

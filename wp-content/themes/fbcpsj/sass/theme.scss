@@ -186,6 +186,10 @@ body {
 
 .slider {
 
+  .icon.is-large {
+    width: 2rem !important;
+  }
+
   .slides {
     position: absolute;
     width:100%;
@@ -881,6 +885,7 @@ body {
 .feat-buttons {
   border: 2px solid #fff !important;
   position: relative;
+  margin: 0 !important;
 }
 
 .feat-button {
