@@ -13,34 +13,35 @@ $sermonObject = new Sermons();
 
 $recent = ($sermonObject->getNext([], null, 1))[0];
 
-// echo $recent['date'];
+// echo floatval($recent['date'] . '03');
 // echo ' = ';
-// echo date('Ymd');
+// echo floatval(date('Ymdh'));
 ?>
 <div id="events" class="section-wrapper" >
     <div id="events-section" style="padding: 6rem 0 8rem;">
         <div class="container has-text-centered">
         <h2 class="title is-size-2" style="font-family: 'Playfair Display',serif; font-weight: 700;">
-            <?php echo ($recent['date'] > date('Ymd') ? 'Upcoming' : 'Current' ); ?> Message</h2>
+            <?php echo (floatval($recent['date'] . '08') > floatval(date('Ymdh')) ? 'Upcoming' : 'Current' ); ?> Message</h2>
         <p class="sermon-name is-size-4"><?php echo $recent['name']; ?></p>
-        <p class="sermon-date is-size-4"><?php echo date('F j, Y', strtotime($recent['date'])); ?></p>
+        <p class="sermon-date is-size-4"><?php echo date('F j, Y', strtotime($recent['date'])); ?> at 8:00 am</p>
         &nbsp;
-        <?php if($recent['vimeo'] != ''){ ?>
-        <div class="box">
-            <div class="video-wrapper horizontal">
-            <iframe 
-                :src="'https://player.vimeo.com/video/<?php echo $recent['vimeo']; ?>?autoplay=1&title=0&byline=0&portrait=0'" 
-                frameborder="0" 
-                webkitallowfullscreen mozallowfullscreen allowfullscreen
-                style="width:100%;"
-            ></iframe>
-            </div>
+
+        <div class="countdown" >
+            <base-timer message-date="<?php echo date('Y-m-d',strtotime($recent['date'])) . 'T' . '08'; ?>" >
+            <?php if($recent['vimeo'] != ''){ ?>
+                <div class="video-wrapper horizontal">
+                <iframe 
+                    :src="'https://player.vimeo.com/video/<?php echo $recent['vimeo']; ?>?autoplay=1&title=0&byline=0&portrait=0'" 
+                    frameborder="0" 
+                    webkitallowfullscreen mozallowfullscreen allowfullscreen
+                    style="width:100%;"
+                ></iframe>
+                </div>
+            <?php }else{ ?>
+                <p style="margin:3rem 0">Please stand by while we finish the video.</p>
+            <?php } ?>
+            </base-timer>
         </div>
-        <?php }else{ ?>
-            <div class="box" >
-                <p>Check back Sunday morning for the video!</p>
-            </div>
-        <?php } ?>
 
         <div class="columns" >
             <?php if($recent['notes']!='') {?>
@@ -49,7 +50,7 @@ $recent = ($sermonObject->getNext([], null, 1))[0];
             </div>
             <?php } ?>
             <div class="column is-4-desktop">
-                <a href="/connection-card/" class="button is-fullwidth is-info" >Complete Connection Card</a>
+                <a href="/connection-card/" class="button is-fullwidth is-info" >Connection Card</a>
             </div>
             <div class="column is-4-desktop">
                 <a href="/give/" class="button is-fullwidth is-info" >Tithe & Giving</a>
@@ -75,7 +76,7 @@ $recent = ($sermonObject->getNext([], null, 1))[0];
     </div>
     <div class="column is-4">
         <div class="feat-button goodnews">
-            <a href="/the-good-news/" >I am Becoming a<br>Follower of Jesus</a>
+            <a href="/the-good-news/" >I Am Becoming a<br>Follower of Jesus</a>
             <div class="overlay"></div>
         </div>
     </div>

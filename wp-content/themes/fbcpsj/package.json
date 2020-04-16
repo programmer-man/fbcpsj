@@ -14,6 +14,7 @@
     "cross-env": "^5.2.0",
     "font-awesome": "^4.7.0",
     "laravel-mix": "0.*",
+    "moment": "^2.24.0",
     "purgecss-webpack-plugin": "^0.20.1",
     "vue": "^2.5.17"
   },

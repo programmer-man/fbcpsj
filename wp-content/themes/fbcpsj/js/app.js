@@ -8,6 +8,7 @@ import tab from './components/tab.vue';
 import slider from './components/slider.vue';
 import slide from './components/slide.vue';
 import GoogleMap from './components/GoogleMap.vue';
+import BaseTimer from './components/BaseTimer.vue';
 
 var app = new Vue({
 
@@ -20,7 +21,8 @@ var app = new Vue({
         'tab' : tab,
         'slider' : slider,
         'slide' : slide,
-        'google-map' : GoogleMap
+        'google-map' : GoogleMap,
+        'base-timer' : BaseTimer
     },
 
     data(){
