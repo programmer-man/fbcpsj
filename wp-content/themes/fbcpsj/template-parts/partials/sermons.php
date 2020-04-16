@@ -29,14 +29,18 @@ $recent = ($sermonObject->getNext([], null, 1))[0];
         <div class="countdown" >
             <base-timer message-date="<?php echo date('Y-m-d',strtotime($recent['date'])) . 'T' . '08'; ?>" >
             <?php if($recent['vimeo'] != ''){ ?>
-                <div class="video-wrapper horizontal">
-                <iframe 
-                    :src="'https://player.vimeo.com/video/<?php echo $recent['vimeo']; ?>?autoplay=1&title=0&byline=0&portrait=0'" 
-                    frameborder="0" 
-                    webkitallowfullscreen mozallowfullscreen allowfullscreen
-                    style="width:100%;"
-                ></iframe>
+                <div class="card">
+                    <div class="video-wrapper horizontal">
+                    <iframe 
+                        :src="'https://player.vimeo.com/video/<?php echo $recent['vimeo']; ?>?autoplay=1&title=0&byline=0&portrait=0'" 
+                        frameborder="0" 
+                        webkitallowfullscreen mozallowfullscreen allowfullscreen
+                        style="width:100%;"
+                    ></iframe>
+                    </div>
                 </div>
+                &nbsp;
+
             <?php }else{ ?>
                 <p style="margin:3rem 0">Please stand by while we finish the video.</p>
             <?php } ?>
