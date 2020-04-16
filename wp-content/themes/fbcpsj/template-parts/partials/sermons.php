@@ -57,7 +57,7 @@ $recent = ($sermonObject->getNext([], null, 1))[0];
                 <a href="/connection-card/" class="button is-fullwidth is-info" >Connection Card</a>
             </div>
             <div class="column is-4-desktop">
-                <a href="/give/" class="button is-fullwidth is-info" >Tithe & Giving</a>
+                <a href="/give/" class="button is-fullwidth is-info" >Give Online</a>
             </div>
         </div>
 
