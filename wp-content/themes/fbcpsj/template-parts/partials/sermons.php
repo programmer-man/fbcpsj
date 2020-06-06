@@ -21,18 +21,25 @@ $recent = ($sermonObject->getNext([], null, 1))[0];
     <div id="events-section" style="padding: 6rem 0 8rem;">
         <div class="container has-text-centered">
         <h2 class="title is-size-2" style="font-family: 'Playfair Display',serif; font-weight: 700;">
-            <?php echo (floatval($recent['date'] . '08') > floatval(date('Ymdh')) ? 'Upcoming' : 'Current' ); ?> Message</h2>
-        <p class="sermon-name is-size-4"><?php echo $recent['name']; ?></p>
-        <p class="sermon-date is-size-4"><?php echo date('F j, Y', strtotime($recent['date'])); ?> at 8:00 am</p>
+            <?php //echo (floatval($recent['date'] . '08') > floatval(date('Ymdh')) ? 'Upcoming' : 'Current' ); ?> Sunday Morning LIVE</h2>
+            <!-- <p class="sermon-name is-size-4"><?php //echo $recent['name']; ?></p> -->
+            <p class="sermon-date is-size-4"><?php echo date('F j, Y', strtotime($recent['date'])); ?> at 8:00 am</p>
         &nbsp;
 
         <div class="countdown" >
             <base-timer message-date="<?php echo date('Y-m-d',strtotime($recent['date'])) . 'T' . '08'; ?>" >
-            <?php if($recent['vimeo'] != ''){ ?>
+            <?php //if($recent['vimeo'] != ''){ ?>
                 <div class="card">
                     <div class="video-wrapper horizontal">
+                    <!-- <iframe 
+                        :src="'https://player.vimeo.com/video/<?php //echo $recent['vimeo']; ?>?autoplay=1&title=0&byline=0&portrait=0'" 
+                        frameborder="0" 
+                        webkitallowfullscreen mozallowfullscreen allowfullscreen
+                        style="width:100%;"
+                    ></iframe> -->
                     <iframe 
-                        :src="'https://player.vimeo.com/video/<?php echo $recent['vimeo']; ?>?autoplay=1&title=0&byline=0&portrait=0'" 
+                        src="https://www.youtube.com/embed/live_stream?channel=UC9po9YtDN1hctui09FtaL7A&autoplay=1" 
+                        frameborder="0" 
                         frameborder="0" 
                         webkitallowfullscreen mozallowfullscreen allowfullscreen
                         style="width:100%;"
@@ -40,10 +47,7 @@ $recent = ($sermonObject->getNext([], null, 1))[0];
                     </div>
                 </div>
                 &nbsp;
-
-            <?php }else{ ?>
-                <p style="margin:3rem 0">Please stand by while we finish the video.</p>
-            <?php } ?>
+            <?php //} ?>
             </base-timer>
         </div>
 
