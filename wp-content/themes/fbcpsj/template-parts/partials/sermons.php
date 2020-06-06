@@ -23,11 +23,11 @@ $recent = ($sermonObject->getNext([], null, 1))[0];
         <h2 class="title is-size-2" style="font-family: 'Playfair Display',serif; font-weight: 700;">
             <?php //echo (floatval($recent['date'] . '08') > floatval(date('Ymdh')) ? 'Upcoming' : 'Current' ); ?> Sunday Morning LIVE</h2>
             <!-- <p class="sermon-name is-size-4"><?php //echo $recent['name']; ?></p> -->
-            <p class="sermon-date is-size-4"><?php echo date('F j, Y', strtotime($recent['date'])); ?> at 8:00 am</p>
+            <p class="sermon-date is-size-4"><?php echo date('F j, Y', strtotime($recent['date'])); ?> at 10:00 am</p>
         &nbsp;
 
         <div class="countdown" >
-            <base-timer message-date="<?php echo date('Y-m-d',strtotime($recent['date'])) . 'T' . '08'; ?>" >
+            <base-timer message-date="<?php echo date('Y-m-d',strtotime($recent['date'])) . 'T' . '10'; ?>" >
             <?php //if($recent['vimeo'] != ''){ ?>
                 <div class="card">
                     <div class="video-wrapper horizontal">
