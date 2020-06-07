@@ -20,41 +20,43 @@ $recent = ($sermonObject->getNext([], null, 1))[0];
 <div id="events" class="section-wrapper" >
     <div id="events-section" style="padding: 6rem 0 8rem;">
         <div class="container has-text-centered">
-        <h2 class="title is-size-2" style="font-family: 'Playfair Display',serif; font-weight: 700;">
-            <?php //echo (floatval($recent['date'] . '08') > floatval(date('Ymdh')) ? 'Upcoming' : 'Current' ); ?> Sunday Morning LIVE</h2>
-            <!-- <p class="sermon-name is-size-4"><?php //echo $recent['name']; ?></p> -->
-            <p class="sermon-date is-size-4"><?php echo date('F j, Y', strtotime($recent['date'])); ?> at 10:00 am</p>
-        &nbsp;
 
         <div class="countdown" >
-            <base-timer message-date="<?php echo date('Y-m-d',strtotime($recent['date'])) . 'T' . '10'; ?>" >
-            <?php //if($recent['vimeo'] != ''){ ?>
+            <base-timer message-date="<?php echo date('Y-m-d', strtotime($recent['date'])) . 'T' . '10'; ?>" >
+            
+            <?php if($recent['vimeo'] != ''){ ?>
+                <h2 class="title is-size-2" style="font-family: 'Playfair Display',serif; font-weight: 700;">
+                    Sunday Morning On-Demand</h2>
+                <p class="sermon-name is-size-4"><?php echo $recent['name']; ?></p>
+                <p class="sermon-date is-size-4"><?php echo date('F j, Y', strtotime($recent['date'])); ?> at 10:00 am</p>
+                &nbsp;
+
                 <div class="card">
                     <div class="video-wrapper horizontal">
-                    <!-- <iframe 
-                        :src="'https://player.vimeo.com/video/<?php //echo $recent['vimeo']; ?>?autoplay=1&title=0&byline=0&portrait=0'" 
+                    <iframe 
+                        :src="'https://player.vimeo.com/video/<?php echo $recent['vimeo']; ?>?autoplay=1&title=0&byline=0&portrait=0'" 
                         frameborder="0" 
                         webkitallowfullscreen mozallowfullscreen allowfullscreen
                         style="width:100%;"
-                    ></iframe> -->
-                    <!-- <iframe 
-                        src="https://www.youtube.com/embed/live_stream?channel=UC9po9YtDN1hctui09FtaL7A&autoplay=1" 
-                        frameborder="0" 
-                        frameborder="0" 
-                        webkitallowfullscreen mozallowfullscreen allowfullscreen
-                        style="width:100%;"
-                    ></iframe> -->
-                    <iframe src="https://vimeo.com/event/93158/embed" 
-                        frameborder="0" 
-                        allow="autoplay; fullscreen" 
-                        allowfullscreen 
-                        style="position:absolute;top:0;left:0;width:100%;height:100%;"
                     ></iframe>
                     </div>
                 </div>
+                
+            <?php }else{ ?>
+                <h2 class="title is-size-2" style="font-family: 'Playfair Display',serif; font-weight: 700;">
+                Sunday Morning LIVE</h2>
                 &nbsp;
-            <?php //} ?>
+                <iframe src="https://vimeo.com/event/93158/embed" 
+                    frameborder="0" 
+                    allow="autoplay; fullscreen" 
+                    allowfullscreen 
+                    style="position:absolute;top:0;left:0;width:100%;height:100%;"
+                ></iframe>
+            <?php } ?>
+
+            &nbsp;
             </base-timer>
+
         </div>
 
         <div class="columns" >
