@@ -225,7 +225,7 @@ class Sermons {
                 [
                     'key'     => 'sermon_details_sermon_date',
                     'value'   => date('Ymd'),
-                    'compare' => '<'
+                    'compare' => '<='
                 ]
             ]
         ],null,4);

@@ -22,7 +22,7 @@ $recent = ($sermonObject->getNext([], null, 1))[0];
         <div class="container has-text-centered">
 
         <div class="countdown" >
-            <base-timer message-date="<?php echo date('Y-m-d', strtotime($recent['date'])) . 'T' . '10'; ?>" >
+            
             
             <?php if($recent['vimeo'] != ''){ ?>
                 <h2 class="title is-size-2" style="font-family: 'Playfair Display',serif; font-weight: 700;">
@@ -43,19 +43,25 @@ $recent = ($sermonObject->getNext([], null, 1))[0];
                 </div>
                 
             <?php }else{ ?>
+                
                 <h2 class="title is-size-2" style="font-family: 'Playfair Display',serif; font-weight: 700;">
                 Sunday Morning LIVE</h2>
+                <p class="sermon-date is-size-4">at 10:00 am Eastern</p>
                 &nbsp;
+                <base-timer message-date="<?php echo date('Y-m-d', strtotime($recent['date'])) . 'T' . '10'; ?>" >
+                <div class="video-wrapper horizontal">
                 <iframe src="https://vimeo.com/event/93158/embed" 
                     frameborder="0" 
                     allow="autoplay; fullscreen" 
                     allowfullscreen 
-                    style="position:absolute;top:0;left:0;width:100%;height:100%;"
+                    style="width:100%;"
                 ></iframe>
+                </div>
+                </base-timer>
             <?php } ?>
 
             &nbsp;
-            </base-timer>
+            
 
         </div>
 
