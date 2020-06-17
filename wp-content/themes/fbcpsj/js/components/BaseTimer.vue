@@ -1,7 +1,7 @@
 <template>
   <div>
 
-    <div v-if="timeLeft < timeLimit">
+    <div v-if="timeLeft < timeLimit" class="base-timer" >
        <svg class="base-timer__svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
         <g class="base-timer__circle">
           <circle class="base-timer__path-elapsed" cx="50" cy="50" r="45" />
@@ -23,7 +23,7 @@
       </span>
     </div>
 
-    <div v-else class="base-timer" >
+    <div v-else >
       <slot></slot> 
     </div>
 
